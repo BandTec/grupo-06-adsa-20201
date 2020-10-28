@@ -100,12 +100,12 @@ public class TelaInicial extends javax.swing.JFrame {
             lblRAMPercent.setText(String.format("%.1f%%", ram.getCurrentPercent()));
             
             lblNameDisk0.setText(disk.getName(0));
-             lblTotalSpaceDisk0.setText(String.format("%.2fGB", disk.getDiskSize(0)));
+            lblTotalSpaceDisk0.setText(String.format("%.2fGB", disk.getDiskSize(0)));
             lblFreeSpaceDisk0.setText(String.format("%.2fGB", disk.getFreeSize(0)));
             pgbUsageDisk0.setValue(disk.getDiskPercent(0));
 
             if (disk.getDiskCount() > 1) {
-                lblNameDisk0.setText(disk.getName(1));
+                lblNameDisk1.setText(disk.getName(1));
                 lblTotalSpaceDisk1.setText(String.format("%.2fGB", disk.getDiskSize(1)));
                 lblFreeSpaceDisk1.setText(String.format("%.2fGB", disk.getFreeSize(1)));
                 pgbUsageDisk1.setValue(disk.getDiskPercent(1));
@@ -161,10 +161,10 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        lblNameDisk1 = new javax.swing.JLabel();
         pgbUsageDisk1 = new javax.swing.JProgressBar();
         lblTotalSpaceDisk1 = new javax.swing.JLabel();
         lblFreeSpaceDisk1 = new javax.swing.JLabel();
+        lblNameDisk1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -180,12 +180,12 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        lblNameDisk0 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         lblTotalSpaceDisk0 = new javax.swing.JLabel();
         lblFreeSpaceDisk0 = new javax.swing.JLabel();
         pgbUsageDisk0 = new javax.swing.JProgressBar();
+        lblNameDisk0 = new javax.swing.JLabel();
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -304,11 +304,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel14.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel14.setText("used");
+        jLabel14.setText("Utilizado");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel19.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel19.setText("available");
+        jLabel19.setText("Disponível");
         jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         lblRAM.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
@@ -327,7 +327,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel5.add(lblRAMPercent, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, 350, 220));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 370, 220));
 
         jPanel4.setBackground(new java.awt.Color(29, 29, 32));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -338,11 +338,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 21, -1, -1));
 
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel12.setText("Average");
+        jLabel12.setText("Média");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 55, -1, -1));
 
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel18.setText("Maximum");
+        jLabel18.setText("Máximo");
         jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         lblCPU.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
@@ -360,19 +360,19 @@ public class TelaInicial extends javax.swing.JFrame {
         lblCPUPercent.setText("100.0%");
         jPanel4.add(lblCPUPercent, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 380, 220));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 410, 220));
 
         jPanel7.setBackground(new java.awt.Color(29, 29, 32));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Disco 2");
+        jLabel4.setText("Disco Externo");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel29.setText("Disk 1");
+        jLabel29.setText("Disk 2");
         jPanel7.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -382,20 +382,16 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel31.setText("Total space:");
+        jLabel31.setText("Espaço Total:");
         jPanel7.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel32.setText("Free space:");
+        jLabel32.setText("Espaço Livre:");
         jPanel7.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        lblNameDisk1.setForeground(new java.awt.Color(0, 153, 153));
-        lblNameDisk1.setText("desconectado");
-        jPanel7.add(lblNameDisk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 160, -1));
-
         pgbUsageDisk1.setForeground(new java.awt.Color(0, 153, 153));
-        jPanel7.add(pgbUsageDisk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 220, 30));
+        jPanel7.add(pgbUsageDisk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 230, 30));
 
         lblTotalSpaceDisk1.setForeground(new java.awt.Color(0, 153, 153));
         lblTotalSpaceDisk1.setText("0");
@@ -405,7 +401,11 @@ public class TelaInicial extends javax.swing.JFrame {
         lblFreeSpaceDisk1.setText("0");
         jPanel7.add(lblFreeSpaceDisk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 130, -1));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 240, 210));
+        lblNameDisk1.setForeground(new java.awt.Color(0, 153, 153));
+        lblNameDisk1.setText(":");
+        jPanel7.add(lblNameDisk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 76, 200, 20));
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 270, 210));
 
         jPanel8.setBackground(new java.awt.Color(29, 29, 32));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -475,14 +475,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("sistema");
+        jLabel17.setText("Sistema");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(50, 50, 50))
         );
@@ -493,7 +493,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel8.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, -1));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 210, 210));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, 210, 210));
 
         jPanel11.setBackground(new java.awt.Color(29, 29, 32));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -515,12 +515,12 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Disco 1");
+        jLabel24.setText("Disco Local");
         jPanel9.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel25.setText("Disk 0");
+        jLabel25.setText("Disk 1");
         jPanel9.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -528,38 +528,38 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel26.setText("Nome:");
         jPanel9.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        lblNameDisk0.setForeground(new java.awt.Color(0, 153, 153));
-        lblNameDisk0.setText(":");
-        jPanel9.add(lblNameDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 190, -1));
-
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel27.setText("Total space:");
+        jLabel27.setText("Espaço Total:");
         jPanel9.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel28.setText("Free space:");
+        jLabel28.setText("Espaço Livre:");
         jPanel9.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         lblTotalSpaceDisk0.setForeground(new java.awt.Color(0, 153, 153));
         lblTotalSpaceDisk0.setText("0");
-        jPanel9.add(lblTotalSpaceDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, -1));
+        jPanel9.add(lblTotalSpaceDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 130, -1));
 
         lblFreeSpaceDisk0.setForeground(new java.awt.Color(0, 153, 153));
         lblFreeSpaceDisk0.setText("0");
-        jPanel9.add(lblFreeSpaceDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 90, -1));
+        jPanel9.add(lblFreeSpaceDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 90, -1));
 
         pgbUsageDisk0.setForeground(new java.awt.Color(0, 153, 153));
-        jPanel9.add(pgbUsageDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 230, 30));
+        jPanel9.add(pgbUsageDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 250, 30));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 270, 210));
+        lblNameDisk0.setForeground(new java.awt.Color(0, 153, 153));
+        lblNameDisk0.setText(":");
+        jPanel9.add(lblNameDisk0, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 76, 220, 20));
+
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 290, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1101, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

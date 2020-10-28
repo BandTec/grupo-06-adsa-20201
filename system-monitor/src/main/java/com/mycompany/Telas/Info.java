@@ -47,6 +47,9 @@ public class Info extends javax.swing.JPanel {
         lblCPUMicroArchtecture = new javax.swing.JLabel();
         lblCPUIdentifier = new javax.swing.JLabel();
         lblCPUName = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -55,47 +58,72 @@ public class Info extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Operating system:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jLabel1.setText("Sistema operacional");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         lblOperatingSystem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblOperatingSystem.setForeground(new java.awt.Color(0, 153, 153));
         lblOperatingSystem.setText(":");
-        jPanel1.add(lblOperatingSystem, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 270, -1));
+        jPanel1.add(lblOperatingSystem, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 270, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Processor:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel3.setText("Processador:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         lblCPUVendor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCPUVendor.setForeground(new java.awt.Color(0, 153, 153));
         lblCPUVendor.setText(":");
-        jPanel1.add(lblCPUVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 370, -1));
+        jPanel1.add(lblCPUVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 370, -1));
 
         lblCPUMicroArchtecture.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCPUMicroArchtecture.setForeground(new java.awt.Color(0, 153, 153));
         lblCPUMicroArchtecture.setText(":");
-        jPanel1.add(lblCPUMicroArchtecture, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 380, -1));
+        jPanel1.add(lblCPUMicroArchtecture, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 380, -1));
 
         lblCPUIdentifier.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCPUIdentifier.setForeground(new java.awt.Color(0, 153, 153));
         lblCPUIdentifier.setText(":");
-        jPanel1.add(lblCPUIdentifier, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 370, -1));
+        jPanel1.add(lblCPUIdentifier, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 370, -1));
 
         lblCPUName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCPUName.setForeground(new java.awt.Color(0, 153, 153));
         lblCPUName.setText(":");
-        jPanel1.add(lblCPUName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 360, -1));
+        jPanel1.add(lblCPUName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 360, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 290));
+        jLabel10.setFont(new java.awt.Font("Dubai", 1, 140)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setText("M");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 120, 120));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 200, 10));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Informações do Sistema");
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 190, 30));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 350));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+      
+    }//GEN-LAST:event_jLabel21MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblCPUIdentifier;
     private javax.swing.JLabel lblCPUMicroArchtecture;
     private javax.swing.JLabel lblCPUName;
