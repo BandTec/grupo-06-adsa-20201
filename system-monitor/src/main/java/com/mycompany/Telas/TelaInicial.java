@@ -571,7 +571,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         try {
-            java.awt.Desktop.getDesktop().browse( new java.net.URI( "http://www.google.com" ) );
+            java.awt.Desktop.getDesktop().browse( new java.net.URI( "file:///C:/Users/aluga.com/Desktop/repositorio/grupo-06-adsa-20201/MachineTech-%20Web%20site%20Responsivo/MachineTech-%20Web%20site%20Responsivo/Site/index.html" ) );
         } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -581,7 +581,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
         try {
-            java.awt.Desktop.getDesktop().browse( new java.net.URI( "https://github.com/BandTec/grupo-06-adsa-20201" ) );
+            java.awt.Desktop.getDesktop().browse( new java.net.URI( "file:///C:/Users/aluga.com/Desktop/repositorio/grupo-06-adsa-20201/MachineTech-%20Web%20site%20Responsivo/MachineTech-%20Web%20site%20Responsivo/Site/login.html" ) );
         } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
                     }
