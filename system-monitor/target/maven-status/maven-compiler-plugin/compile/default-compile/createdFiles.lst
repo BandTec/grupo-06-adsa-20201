@@ -22,7 +22,6 @@ com\mycompany\Oshi\CPU.class
 com\mycompany\Telas\Login$6.class
 com\mycompany\Telas\TelaInicial$4.class
 com\mycompany\Telas\Processes.class
-com\mycompany\Telas\IntroMachine$3.class
 com\mycompany\Telas\Login$5.class
 com\mycompany\Telas\IntroMachine$1.class
 com\mycompany\Oshi\RAM.class
