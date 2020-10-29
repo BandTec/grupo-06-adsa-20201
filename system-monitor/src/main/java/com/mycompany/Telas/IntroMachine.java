@@ -166,7 +166,7 @@ public class IntroMachine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-          jPanel2.setOpaque(true);
+    jPanel2.setOpaque(true);
     jPanel2.setBackground(Color.RED);
      new Login().setVisible(true);
      dispose();
@@ -221,10 +221,8 @@ public class IntroMachine extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IntroMachine().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new IntroMachine().setVisible(true);
         });
     }
 

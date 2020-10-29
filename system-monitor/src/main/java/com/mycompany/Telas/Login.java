@@ -37,13 +37,13 @@ public class Login extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 32767));
-        jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator5 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
         Username = new javax.swing.JTextField();
         senha = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
@@ -102,13 +102,6 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 430, -1));
         jPanel4.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 140)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("?");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 310, 160));
-
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -163,6 +156,11 @@ public class Login extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 300, 20));
+
+        jLabel12.setFont(new java.awt.Font("Dubai", 1, 140)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel12.setText("M");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 120, 140));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 500));
 
@@ -316,14 +314,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void UsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMouseClicked
-       carregando.setText("LOGIN");
-            carregando.setForeground(Color.darkGray);
+       erro.setText("LOGIN");
+       erro.setForeground(Color.darkGray);
             
     }//GEN-LAST:event_UsernameMouseClicked
 
     private void senhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_senhaMouseClicked
         erro.setText("LOGIN");
-            erro.setForeground(Color.darkGray);
+        erro.setForeground(Color.darkGray);
     }//GEN-LAST:event_senhaMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -333,8 +331,8 @@ public class Login extends javax.swing.JFrame {
      dispose();       
        dispose();
         }else{
-            carregando.setText("Login Invalido");
-            carregando.setForeground(Color.red);
+            erro.setText("Login Invalido");
+            erro.setForeground(Color.red);
             System.out.println("usuario invalido");
             
         }    }//GEN-LAST:event_jLabel2MouseClicked
@@ -384,7 +382,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
