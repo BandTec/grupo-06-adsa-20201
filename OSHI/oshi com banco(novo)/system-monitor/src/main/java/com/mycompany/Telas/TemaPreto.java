@@ -37,27 +37,27 @@ public class TemaPreto extends javax.swing.JFrame {
 
         initComponents();
 
-// --------------------------recriando tabelas no banco de dados---------------------------------------//
-        template.execute("DROP TABLE IF EXISTS dadosMaquinas");
-
-        String criacao = "CREATE TABLE dadosMaquinas("
-                + "id INT PRIMARY KEY IDENTITY(1,1),"
-                + "CpuPorcent VARCHAR(250),"
-                + "CpuMaximo VARCHAR(250),"
-                + "MediaCpu VARCHAR(250),"
-                + "RamUsada VARCHAR(250),"
-                + "RamDisponivel VARCHAR(250),"
-                + "Ramporcentagem VARCHAR(250),"
-                + "discoTotal VARCHAR(250),"
-                + "discoDisponi VARCHAR(250),"
-                + "Discoporcentagem VARCHAR(250),"
-                + "Statusrede VARCHAR(250),"
-                + "dataConsulta datetime"
-                + ")";
-
-        template.execute(criacao);
-
-        // --------------------------Inserindo dados no banco de dados acada 5 segundos---------------------------------------//     
+// --------------------------recriando tabelas no banco de dados----------------------------------------------------------//
+//        template.execute("DROP TABLE IF EXISTS dadosMaquinas");                                                         
+//
+//        String criacao = "CREATE TABLE dadosMaquinas("
+//                + "id INT PRIMARY KEY IDENTITY(1,1),"
+//                + "CpuPorcent VARCHAR(250),"
+//                + "CpuMaximo VARCHAR(250),"
+//                + "MediaCpu VARCHAR(250),"
+//                + "RamUsada VARCHAR(250),"
+//                + "RamDisponivel VARCHAR(250),"
+//                + "Ramporcentagem VARCHAR(250),"
+//                + "discoTotal VARCHAR(250),"
+//                + "discoDisponi VARCHAR(250),"
+//                + "Discoporcentagem VARCHAR(250),"
+//                + "Statusrede VARCHAR(250),"
+//                + "dataConsulta datetime"
+//                + ")";
+//
+//        template.execute(criacao);
+//
+//       // --------------------------Inserindo dados no banco de dados acada 5 segundos---------------------------------------//     
         TimerTask inserir = new TimerTask() {
 
             @Override
