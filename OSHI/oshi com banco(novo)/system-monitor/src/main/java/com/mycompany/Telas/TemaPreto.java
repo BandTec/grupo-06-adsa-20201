@@ -1,16 +1,18 @@
 package com.mycompany.Telas;
 
+import com.mycompany.API.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import com.mycompany.Oshi.CPU;
-import com.mycompany.Oshi.Disk;
-import com.mycompany.Oshi.RAM;
+import com.mycompany.API.CPU;
+import com.mycompany.API.Disk;
+import com.mycompany.API.RAM;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.List;
 import java.util.TimerTask;
 import javax.swing.JFrame;
@@ -21,127 +23,147 @@ import oshi.SystemInfo;
 
 public class TemaPreto extends javax.swing.JFrame {
 
-    java.util.Timer mTimer = new java.util.Timer();
-    SystemInfo si = new SystemInfo();
+    private java.util.Timer mTimer = new java.util.Timer();
+    private SystemInfo si = new SystemInfo();
     private CPU cpu = new CPU();
     private RAM ram = new RAM();
     private Disk disk = new Disk();
-   
-    private String CpuPorcent = cpu.getCurrentPercent().toString();
-    private String CpuMaximo = cpu.getFrequency().toString();
-    private String MediaCpu = cpu.getCurrentFrequency().toString();
-    private String RamUsada = ram.getUsedMemory().toString();
-    private String RamDiponivel = ram.getAvailableMemory().toString();
-    private String Ramporcentagem = ram.getCurrentPercent().toString();
-    private String discoTotal = disk.getDiskSize(0).toString();
-    private String discoDisponi = disk.getFreeSize(0).toString();
-    private String Discoporcentagem = disk.getDiskPercent(0).toString();
-    private String Statusrede ="";
+    private  String Statusrede = "";
+    private Connection con = new Connection();
+    private JdbcTemplate template = new JdbcTemplate(con.getDatasource());
+    private Date dataJava = new Date();
 
     public TemaPreto() {
 
         initComponents();
 
-        Conexao con = new Conexao();
-        JdbcTemplate template = new JdbcTemplate(con.getBanco());
-
-        template.execute(
-                "DROP TABLE IF EXISTS dadosMaquinas");
+// --------------------------recriando tabelas no banco de dados---------------------------------------//
+        template.execute("DROP TABLE IF EXISTS dadosMaquinas");
 
         String criacao = "CREATE TABLE dadosMaquinas("
-                + "id INT PRIMARY KEY AUTO_INCREMENT,"
+                + "id INT PRIMARY KEY IDENTITY(1,1),"
                 + "CpuPorcent VARCHAR(250),"
                 + "CpuMaximo VARCHAR(250),"
                 + "MediaCpu VARCHAR(250),"
                 + "RamUsada VARCHAR(250),"
-                + "RamDiponivel VARCHAR(250),"
+                + "RamDisponivel VARCHAR(250),"
                 + "Ramporcentagem VARCHAR(250),"
                 + "discoTotal VARCHAR(250),"
                 + "discoDisponi VARCHAR(250),"
                 + "Discoporcentagem VARCHAR(250),"
-                 + "Statusrede VARCHAR(250)"
+                + "Statusrede VARCHAR(250),"
+                + "dataConsulta datetime"
                 + ")";
 
         template.execute(criacao);
+
+        // --------------------------Inserindo dados no banco de dados acada 5 segundos---------------------------------------//     
         TimerTask inserir = new TimerTask() {
 
             @Override
             public void run() {
+                
+                
+             String CpuPorcent = cpu.getCurrentPercent().toString();
+             String CpuMaximo = cpu.getFrequency().toString();
+             String MediaCpu = cpu.getCurrentFrequency().toString();
+             String RamUsada = ram.getUsedMemory().toString();
+             String RamDiponivel = ram.getAvailableMemory().toString();
+             String Ramporcentagem = ram.getCurrentPercent().toString();
+             String discoTotal = disk.getDiskSize(0).toString();
+             String discoDisponi = disk.getFreeSize(0).toString();
+             String Discoporcentagem = disk.getDiskPercent(0).toString();
+       
 
-                template.update("INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?)",
-                        null, CpuPorcent, CpuMaximo, MediaCpu,RamUsada,RamDiponivel,Ramporcentagem,discoTotal,discoDisponi,Discoporcentagem,Statusrede);
+            template.update (
+            "INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                         CpuPorcent, CpuMaximo, MediaCpu, RamUsada, RamDiponivel, Ramporcentagem, discoTotal, discoDisponi, Discoporcentagem, Statusrede,dataJava);
 
                 List resultados = template.queryForList("SELECT * FROM dadosMaquinas");
-                for (Object resultado : resultados) {
+            for (Object resultado : resultados
+
+            
+                ) {
                     System.out.println("Inserindo um novo registro a base de dados:");
-                    System.out.println(resultado);
-                    
-                }
+                System.out.println(resultado);
 
             }
-        };
 
-        mTimer.scheduleAtFixedRate(inserir, 5000, 5000); // iserir acada 5 segundos
+        }
+    }
 
-        // codigo para poder personaï¿½izar a barra de progresso fonte externa         
+    ;
+
+    mTimer.scheduleAtFixedRate (inserir, 
+
+    
+        5000, 5000); // iserir acada 5 segundos
+
+        // --------------------------Personalizando barra no swing---------------------------------------//   
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        TimerTask task = new TimerTask() {
-
-            @Override
-            public void run() {
-                  long velocidadeDaNet = si.getHardware().getNetworkIFs()[0].getSpeed() + si.getHardware().getNetworkIFs()[2].getSpeed() + si.getHardware().getNetworkIFs()[1].getSpeed();
-              // System.out.println(velocidadeDaNet);
-              
-                if (velocidadeDaNet <= 6000000) {
-                    onLabel.setText("OFFLINE");
-                     Statusrede="OFFLINE";
-
-                } else {
-                    onLabel.setText("ONLINE");
-                    Statusrede="ONLINE";
-
-                }
-
-            }
-        };
-
-        mTimer.scheduleAtFixedRate(task, 999, 999);
-
-        ActionListener action;
-        action = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                lblCPU.setText(String.format("%.2fGhz", cpu.getCurrentFrequency()));
-                lblCPU1.setText(String.format("%.2fGhz", cpu.getFrequency()));//30
-                // 40
-                lblCPUPercent.setText(String.format("%.1f%%", cpu.getCurrentPercent()));
-
-                lblRAM.setText(String.format("%.2fGB", ram.getUsedMemory()));
-                lblRAM1.setText(String.format("%.2fGB", ram.getAvailableMemory()));
-                lblRAMPercent.setText(String.format("%.1f%%", ram.getCurrentPercent()));
-
-                lblNameDisk0.setText(disk.getName(0));
-                lblTotalSpaceDisk0.setText(String.format("%.2fGB", disk.getDiskSize(0)));
-                lblFreeSpaceDisk0.setText(String.format("%.2fGB", disk.getFreeSize(0)));
-                pgbUsageDisk0.setValue(disk.getDiskPercent(0));
-
-                if (disk.getDiskCount() > 1) {
-                    lblNameDisk1.setText(disk.getName(1));
-                    lblTotalSpaceDisk1.setText(String.format("%.2fGB", disk.getDiskSize(1)));
-                    lblFreeSpaceDisk1.setText(String.format("%.2fGB", disk.getFreeSize(1)));
-                    pgbUsageDisk1.setValue(disk.getDiskPercent(1));
-                }
-            }
-        };
-
-        Timer timer = new Timer(1000, action);
-        timer.start();
     }
+    catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex
+
+    
+        ) {
+            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    // --------------------------verificando internet ---------------------------------------//   
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            long velocidadeDaNet = si.getHardware().getNetworkIFs()[0].getSpeed() + si.getHardware().getNetworkIFs()[2].getSpeed() + si.getHardware().getNetworkIFs()[1].getSpeed();
+            // System.out.println(velocidadeDaNet);
+
+            if (velocidadeDaNet <= 6000000) {
+                onLabel.setText("OFFLINE");
+                Statusrede = "OFFLINE";
+
+            } else {
+                onLabel.setText("ONLINE");
+                Statusrede = "ONLINE";
+
+            }
+
+        }
+    };
+
+    mTimer.scheduleAtFixedRate (task, 
+    999, 999);
+        // --------------------------exibindo no swing acada 1 seg---------------------------------------//   
+        ActionListener action;
+    action  = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            lblCPU.setText(String.format("%.2fGhz", cpu.getCurrentFrequency()));
+            lblCPU1.setText(String.format("%.2fGhz", cpu.getFrequency()));//30%
+            // 40
+            lblCPUPercent.setText(String.format("%.1f%%", cpu.getCurrentPercent()));
+
+            lblRAM.setText(String.format("%.2fGB", ram.getUsedMemory()));
+            lblRAM1.setText(String.format("%.2fGB", ram.getAvailableMemory()));
+            lblRAMPercent.setText(String.format("%.1f%%", ram.getCurrentPercent()));
+
+            lblNameDisk0.setText(disk.getName(0));
+            lblTotalSpaceDisk0.setText(String.format("%.2fGB", disk.getDiskSize(0)));
+            lblFreeSpaceDisk0.setText(String.format("%.2fGB", disk.getFreeSize(0)));
+            pgbUsageDisk0.setValue(disk.getDiskPercent(0));
+
+            if (disk.getDiskCount() > 1) {
+                lblNameDisk1.setText(disk.getName(1));
+                lblTotalSpaceDisk1.setText(String.format("%.2fGB", disk.getDiskSize(1)));
+                lblFreeSpaceDisk1.setText(String.format("%.2fGB", disk.getFreeSize(1)));
+                pgbUsageDisk1.setValue(disk.getDiskPercent(1));
+            }
+        }
+    };
+
+    Timer timer = new Timer(1000, action);
+
+    timer.start ();
+}
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -582,9 +604,19 @@ public class TemaPreto extends javax.swing.JFrame {
         try {
             java.awt.Desktop.getDesktop().browse(new java.net.URI("file:///C:/Users/aluga.com/Desktop/repositorio/grupo-06-adsa-20201/MachineTech-%20Web%20site%20Responsivo/MachineTech-%20Web%20site%20Responsivo/Site/index.html"));
         } catch (URISyntaxException ex) {
-            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TemaPreto
+
+.class  
+
+
+.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TemaPreto
+
+.class  
+
+
+.getName()).log(Level.SEVERE, null, ex);
             System.out.println("não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
 
@@ -597,8 +629,13 @@ public class TemaPreto extends javax.swing.JFrame {
         try {
             java.awt.Desktop.getDesktop().browse(new java.net.URI("file:///C:/Users/aluga.com/Desktop/repositorio/grupo-06-adsa-20201/MachineTech-%20Web%20site%20Responsivo/MachineTech-%20Web%20site%20Responsivo/Site/login.html"));
         } catch (URISyntaxException | IOException ex) {
-            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
-             System.out.println("não foi posivel acesar o site");
+            Logger.getLogger(TemaPreto
+
+.class  
+
+
+.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabel21MouseClicked
@@ -607,8 +644,13 @@ public class TemaPreto extends javax.swing.JFrame {
         try {
             java.awt.Desktop.getDesktop().browse(new java.net.URI("https://github.com/BandTec/grupo-06-adsa-20201"));
         } catch (URISyntaxException | IOException ex) {
-            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
-             System.out.println("não foi posivel acesar o site");
+            Logger.getLogger(TemaPreto
+
+.class  
+
+
+.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
                     }    }//GEN-LAST:event_jLabel23MouseClicked
 
