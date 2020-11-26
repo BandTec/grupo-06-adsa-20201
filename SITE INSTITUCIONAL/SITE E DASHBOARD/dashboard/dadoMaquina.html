@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+
+
+
+</head>
+
+<body>
+    <section class="content-global">
+        <div class="content-menu">
+            <h1>
+                <a style="text-decoration: none;" id="nomeLinha">Hostname Maquina</a>
+            </h1>
+
+            <!-- São Paulo-Morumbi.
+            Pinheiros.
+            Faria Lima.
+            Fradique Coutinho.
+            Oscar Freire.
+            Paulista.
+            República. -->
+
+            <div class="content-topicos">
+                <a href="#">Estação</a>
+                <a href="#">Dados</a>
+            </div>
+
+        </div>
+        <div class="content-estacoes">
+            <!--primeria linha-->
+            <div class="box-estacoes" id="">
+                <h1>CPU</h1>
+                <div class="box">
+                    <div class="chart" data-percent="70" data-scale-color="#ffb400">
+                        <span class="porcentagem"> 70%</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Memória</h1>
+                <div class="box">
+                    <div class="chart" data-percent="50" data-scale-color="#ffb400">
+                        <span class="porcentagem"> 50%</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Disco</h1>
+                <div class="box">
+                    <div class="chart" data-percent="85" data-scale-color="#ffb400">
+                        <span class="porcentagem"> 85%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- <div class="box-estacoes"></div>
+            <div class="box-estacoes"></div> -->
+
+        </div>
+    </section>
+    <section class="footer">
+
+    </section>
+
+
+    </div>
+
+
+
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+<script>
+    $(function() {
+        $('.chart').easyPieChart({
+            size: 160,
+            barColor: "#17d3e6",
+            scaleLength: 0,
+            lineWidth: 15,
+            trackColor: "#9c9b9b",
+            lineCap: "circle",
+            animate: 2000,
+        });
+    });
+</script>
