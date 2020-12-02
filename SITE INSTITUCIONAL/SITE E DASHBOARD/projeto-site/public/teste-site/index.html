@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2? family = Montserrat & display = swap');
+        @import url('https://fonts.googleapis.com/css2? family = Lobster & display = swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+        body {
+            text-align: center;
+            background: #f7f5f5;
+            /* background: #141414; */
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .content-global {
+            width: 95%;
+            height: 100%;
+            /* background: rgba(119, 118, 118, 0.178); */
+        }
+        
+        .content-menu {
+            width: 94%;
+            height: 20vh;
+            position: relative;
+            margin-top: 5%;
+            left: 3%;
+            /* background: rgba(104, 3, 3, 0.116); */
+            margin-bottom: 80px;
+        }
+        
+        .content-menu h1 {
+            float: left;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 45px;
+            line-height: 36px;
+            position: relative;
+            top: 8%;
+            left: 3%;
+            color: rgb(78, 77, 77);
+            text-align: start;
+            cursor: pointer;
+        }
+        
+        .content-menu a {
+            color: rgb(78, 77, 77);
+        }
+        
+        .content-menu a:hover {
+            color: rgb(145, 145, 146);
+        }
+        
+        .content-topicos {
+            float: right;
+            width: 20%;
+            text-transform: uppercase;
+            position: relative;
+            text-align: center;
+            margin-top: 5%;
+            right: 3%;
+        }
+        
+        .content-topicos a {
+            font-family: Montserrat, sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            margin-right: 8%;
+            color: rgb(87, 87, 87);
+        }
+        
+        .content-estacoes {
+            width: 94%;
+            height: 80%;
+            position: relative;
+            top: 9%;
+            left: 3%;
+            justify-content: center;
+            /* background: rgba(104, 3, 3, 0.116); */
+        }
+        
+        .box-estacoes {
+            min-width: 320px;
+            min-height: 300px;
+            max-height: 300px;
+            display: inline-block;
+            border: solid 1px rgba(128, 128, 128, 0.425);
+            box-shadow: -10px 8px 15px grey;
+            position: relative;
+            vertical-align: middle;
+            margin-left: 30px;
+            margin-right: 10px;
+            margin-bottom: 50px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        
+        .box-estacoes h1 {
+            width: 100%;
+            text-align: center;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 30px;
+            color: rgba(12, 12, 12, 0.705);
+            margin-bottom: 5px;
+        }
+        
+        .box-estacoes img {
+            width: 200px;
+        }
+        
+        .circle-idicator {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid rgba(0, 128, 0, 0.678);
+            margin-left: 18%;
+        }
+        
+        .circle-idicator h1 {
+            font-size: 75px;
+            margin-top: 25px;
+            margin-bottom: 4px;
+            color: gray;
+        }
+        
+        .circle-idicator h3 {
+            margin-top: 4px;
+            color: rgb(51, 110, 51);
+        }
+        
+        .box-estacoes img {
+            width: 200px;
+        }
+        
+        .circle-idicator.yellow {
+            border: 8px solid rgba(159, 177, 1, 0.678);
+        }
+        
+        .circle-idicator.yellow h3 {
+            color: rgb(124, 151, 27);
+        }
+        
+        .circle-idicator.red {
+            border: 8px solid rgba(177, 1, 1, 0.678);
+        }
+        
+        .circle-idicator.red h3 {
+            color: rgb(151, 27, 27);
+        }
+        /* .popup {
+            position: absolute;
+            width: 80%;
+            height: 80vh;
+            background: red;
+            top: 5%;
+            left: 10%;
+            transition: all 5s ease-in-out;
+            visibility: hidden;
+            transition: all .5s ease-in-out;
+        } */
+        
+        .modalDialog {
+            position: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 99999;
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+        
+        .modalDialog:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .modalDialog>div {
+            width: 80%;
+            height: 60vh;
+            position: relative;
+            border: 5px solid gray;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 3px;
+            background: rgb(255, 255, 255);
+            background: url("trem.png");
+            /* filter: opacity(94%); */
+        }
+        
+        .close {
+            background: #eceaea;
+            color: #6b6969;
+            line-height: 25px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+        
+        .close:hover {
+            background: #f80202;
+            color: white;
+        }
+        
+        .linha-titulo {
+            margin-top: 80px;
+            font-size: 42px;
+            color: #727070;
+            width: 50%;
+            text-transform: uppercase;
+            margin-left: 25%;
+        }
+        
+        .linhas {
+            width: 400px;
+            height: 80px;
+            font-size: 1.2em;
+            color: gray;
+            border: solid 3px rgb(150, 150, 150);
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .linhas option {
+            text-align: center;
+            background: rgba(238, 235, 235, 0.589);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="content-global">
+        <div class="content-menu">
+            <h1>
+                <a href="#openModal" style="text-decoration: none;" id="nomeLinha"> Linha amarela</a>
+            </h1>
+
+            <!-- São Paulo-Morumbi.
+            Pinheiros.
+            Faria Lima.
+            Fradique Coutinho.
+            Oscar Freire.
+            Paulista.
+            República. -->
+
+            <div class="content-topicos">
+                <a href="#">Inicio</a>
+                <a href="#">Suporte</a>
+            </div>
+
+        </div>
+        <div class="content-estacoes">
+            <!--primeria linha-->
+            <div class="box-estacoes">
+                <h1>Luz</h1>
+                <div class="circle-idicator">
+                    <h1 class="maquinas">3</h1>
+                    <h3 class="nivel">Otimo</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Republica</h1>
+                <div class="circle-idicator yellow">
+                    <h1 class="maquinas">1</h1>
+                    <h3 class="nivel">alerta</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Mackenzie</h1>
+                <div class="circle-idicator red">
+                    <h1 class="maquinas">2</h1>
+                    <h3 class="nivel">Perigo</h3>
+                </div>
+            </div>
+            <!--segunda linha-->
+            <div class="box-estacoes">
+                <h1>Paulista</h1>
+                <div class="circle-idicator">
+                    <h1 class="maquinas">3</h1>
+                    <h3 class="nivel">Otimo</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Oscar Freire</h1>
+                <div class="circle-idicator red">
+                    <h1 class="maquinas">3</h1>
+                    <h3 class="nivel">Otimo</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Fradique Coutinho</h1>
+                <div class="circle-idicator yellow">
+                    <h1 class="maquinas">2</h1>
+                    <h3 class="nivel">Perigo</h3>
+                </div>
+            </div>
+            <!--terceira linha-->
+            <div class="box-estacoes">
+                <h1>Faria Lima</h1>
+                <div class="circle-idicator">
+                    <h1 class="maquinas">3</h1>
+                    <h3 class="nivel">Otimo</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Pinheiros</h1>
+                <div class="circle-idicator red">
+                    <h1 class="maquinas">2</h1>
+                    <h3 class="nivel">Perigo</h3>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Butantã</h1>
+                <div class="circle-idicator red">
+                    <h1 class="maquinas">2</h1>
+                    <h3 class="nivel">Perigo</h3>
+                </div>
+            </div>
+            <!--terceira linha-->
+            <div class="box-estacoes">
+                <h1>Morumbi</h1>
+                <div class="circle-idicator red">
+                    <h1 class="maquinas">2</h1>
+                    <h3 class="nivel">Perigo</h3>
+                </div>
+            </div>
+            <div class="box-estacoes"></div>
+            <div class="box-estacoes"></div>
+
+        </div>
+    </section>
+
+    <div class="popup" id="tela">
+
+    </div>
+
+
+
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <h1 class="linha-titulo">Escolha a Linha:</h1>
+            <select name="linhas" id="linhas" class="linhas" onchange="trocar()">
+                <option value="LINHA AMARELA">04 - Amarela</option>
+                <option value="LINHA AZUL">01 - Azul</option>
+                <option value="LINHA VERDE">02 - Verde</option>
+                <option value="LINHA LILÁZ">05 - Liláz</option>
+                <option value="LINHA PRATA">15 - Prata</option>
+                
+            </select>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    function trocar() {
+        nomeLinha.text = linhas.value;
+    }
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+
+    <script src="js/Chart.min.js"></script>
+    <script src="js/utils.js"></script>
+
+</head>
+
+<body>
+    <section class="content-global">
+        <div class="content-menu">
+            <h1>
+                <a style="text-decoration: none;" id="nomeLinha">Hostname Maquina</a>
+            </h1>
+
+            <!-- São Paulo-Morumbi.
+            Pinheiros.
+            Faria Lima.
+            Fradique Coutinho.
+            Oscar Freire.
+            Paulista.
+            República. -->
+
+            <div class="content-topicos">
+                <a href="#">Estação</a>
+                <a href="#">Dados</a>
+            </div>
+
+        </div>
+        <div class="content-estacoes">
+            <!--primeria linha-->
+            <div class="box-estacoes" id="">
+                <h1>CPU</h1>
+                <div class="box">
+                    <canvas id="chartCPU" height="100%" width="100%"></canvas>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Memória</h1>
+                <div class="box">
+                    <canvas id="chartMemoria" height="100%" width="100%"></canvas>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Disco</h1>
+                <div class="box">
+                    <canvas id="chartDisco" height="100%" width="100%"></canvas>
+                    <div class="chart" data-percent="85" data-scale-color="#ffb400">
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- <div class="box-estacoes"></div>
+            <div class="box-estacoes"></div> -->
+
+        </div>
+    </section>
+    <section class="footer">
+
+    </section>
+
+
+    </div>
+
+    </div>
+    </div>
+
+    <script src="./js/graficoDisco.js"></script>
+    <script src="./js/graficoMemoria.js"></script>
+    <script src="./js/graficoCPU.js"></script>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+<!-- Validações de login -->
+<script>
+
+    function logoff() {
+        finalizar_sessao();
+        sessionStorage.clear();
+        redirecionar_login();
+        window.location.href = 'machinetechindex.html';
+        }
+
+        function verificar_autenticacao() {
+        login_usuario = sessionStorage.login_usuario_meuapp;
+        nome_usuario = sessionStorage.nome_usuario_meuapp;
+        
+        if (login_usuario == undefined)  {
+            redirecionar_login();
+            
+        } else {
+            b_usuario.innerHTML =login_usuario;
+            b_nome.innerHTML = nome_usuario;
+
+            validar_sessao();
+        }
+        }
+
+        verificar_autenticacao();
+</script>
