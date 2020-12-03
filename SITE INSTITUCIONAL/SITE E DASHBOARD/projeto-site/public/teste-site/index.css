@@ -302,32 +302,6 @@ body {
     z-index: 100;
     width: 100%;
 }
+
+
 /*Tela de dados*/
-body {
-    display: flex;
-    flex-direction: column;
-}
-.table {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
-    /* background-color: black;
-    height: 50px;
-    width: 50px; */
-}
-
-.table .content-table {
-    background-color: #fff;
-    height: 500px;
-    width: 900px;
-    border-radius: 20px;
-    box-shadow: -10px 8px 15px grey;
-
-}
-
-.table .content-table h2 {
-    font-family: sans-serif;
-    color: rgb(78, 77, 77);
-}

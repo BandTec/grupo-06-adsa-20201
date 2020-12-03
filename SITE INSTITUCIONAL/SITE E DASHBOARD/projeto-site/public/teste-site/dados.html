@@ -1,12 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dados.css">
+
+
     <title>Dados Linha Amarela</title>
+
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .rwd-table {
+            margin: auto;
+            min-width: 300px;
+            max-width: 95%;
+            border-collapse: collapse;
+        }
+        
+        .rwd-table tr:first-child {
+            border-top: none;
+            background: #47a4f7;
+            color: #fff;
+        }
+        
+        .rwd-table tr {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            background-color: #f5f9fc;
+        }
+        
+        .rwd-table tr:nth-child(odd):not(:first-child) {
+            background-color: #ebf3f9;
+        }
+        
+        .rwd-table th {
+            display: none;
+        }
+        
+        .rwd-table td {
+            display: block;
+        }
+        
+        .rwd-table td:first-child {
+            margin-top: .5em;
+        }
+        
+        .rwd-table td:last-child {
+            margin-bottom: .5em;
+        }
+        
+        .rwd-table td:before {
+            content: attr(data-th) ": ";
+            font-weight: bold;
+            width: 120px;
+            display: inline-block;
+            color: #000;
+        }
+        
+        .rwd-table th,
+        .rwd-table td {
+            text-align: left;
+        }
+        
+        .rwd-table {
+            color: #333;
+            border-radius: .4em;
+            overflow: hidden;
+        }
+        
+        .rwd-table tr {
+            border-color: #bfbfbf;
+        }
+        
+        .rwd-table th,
+        .rwd-table td {
+            padding: .5em 1em;
+        }
+        
+        @media screen and (max-width: 601px) {
+            .rwd-table tr:nth-child(2) {
+                border-top: none;
+            }
+        }
+        
+        @media screen and (min-width: 600px) {
+            .rwd-table tr:hover:not(:first-child) {
+                background-color: #d8e7f3;
+            }
+            .rwd-table td:before {
+                display: none;
+            }
+            .rwd-table th,
+            .rwd-table td {
+                display: table-cell;
+                padding: .25em .5em;
+            }
+            .rwd-table th:first-child,
+            .rwd-table td:first-child {
+                padding-left: 0;
+            }
+            .rwd-table th:last-child,
+            .rwd-table td:last-child {
+                padding-right: 0;
+            }
+            .rwd-table th,
+            .rwd-table td {
+                padding: 1em !important;
+            }
+        }
+        
+        table {
+            position: absolute;
+            top: 80%;
+        }
+        /* THE END OF THE IMPORTANT STUFF */
+        /* Basic Styling */
+        
+        h1 {
+            text-align: center;
+            font-size: 2.4em;
+            color: #f2f2f2;
+        }
+        
+        .container {
+            display: block;
+            text-align: center;
+        }
+        
+        h3 {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            font-size: 1.5em;
+            color: #cecece;
+        }
+        
+        h3:before {
+            content: "\25C0";
+            position: absolute;
+            left: -50px;
+            -webkit-animation: leftRight 2s linear infinite;
+            animation: leftRight 2s linear infinite;
+        }
+        
+        h3:after {
+            content: "\25b6";
+            position: absolute;
+            right: -50px;
+            -webkit-animation: leftRight 2s linear infinite reverse;
+            animation: leftRight 2s linear infinite reverse;
+        }
+        
+        @-webkit-keyframes leftRight {
+            0% {
+                -webkit-transform: translateX(0)
+            }
+            25% {
+                -webkit-transform: translateX(-10px)
+            }
+            75% {
+                -webkit-transform: translateX(10px)
+            }
+            100% {
+                -webkit-transform: translateX(0)
+            }
+        }
+        
+        @keyframes leftRight {
+            0% {
+                transform: translateX(0)
+            }
+            25% {
+                transform: translateX(-10px)
+            }
+            75% {
+                transform: translateX(10px)
+            }
+            100% {
+                transform: translateX(0)
+            }
+        }
+    </style>
 </head>
+
 <body>
     <section class="content-global">
         <div class="content-menu">
@@ -14,16 +197,81 @@
                 <a style="text-decoration: none;" href="#" id="nomeLinha">Hostname Maquina</a>
             </h1>
         </div>
-        <!--Essa parte aqui ficou zoado-->
-        <!-- <div class="content-topicos">
-            <a href="#">Situação</a>
-            <a href="#">Início</a>
-        </div> -->
-    </section>
-    <section class="table">
-        <div class="content-table">
-            <h2>Dados obtidos:</h2>
+
+        <div class="content-topicos">
+            <a href="#">Inicio</a>
+            <a href="#">Suporte</a>
         </div>
     </section>
+
+
+    <table class="rwd-table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Nome Maquina</th>
+                <th>Porcentagem da CPU</th>
+                <th>CPU maxímo</th>
+                <th>média CPU</th>
+                <th>Ram Utilizada</th>
+                <th>Ram Disponivel</th>
+                <th>Ram porcentagem</th>
+                <th>Disco Total</th>
+                <th>Disco Disponivel</th>
+                <th>Disco Porcentagem</th>
+                <th>Status Rede</th>
+                <th>Data Consulta</th>
+            </tr>
+            <tr>
+                <td data-th="Supplier Code">
+                    001
+                </td>
+                <td data-th="Supplier Name">
+                    maquina teste
+                </td>
+                <td data-th="Invoice Number">
+                    30%
+                </td>
+                <td data-th="Invoice Date">
+                    20,16
+                </td>
+                <td data-th="Due Date">
+                    12,25
+                </td>
+                <td data-th="Net Amount">
+                    8,32
+                </td>
+                <td data-th="Supplier Code">
+                    50,2
+                </td>
+                <td data-th="Supplier Name">
+                    67%
+                </td>
+                <td data-th="Invoice Number">
+                    21,8
+                </td>
+                <td data-th="Invoice Date">
+                    25%
+                </td>
+                <td data-th="Due Date">
+                    16%
+                </td>
+                <td data-th="Net Amount">
+                    online
+                </td>
+                <td data-th="Net Amount">
+                    2020-12-03 17:00
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
 </body>
+
 </html>
+<script>
+</script>
