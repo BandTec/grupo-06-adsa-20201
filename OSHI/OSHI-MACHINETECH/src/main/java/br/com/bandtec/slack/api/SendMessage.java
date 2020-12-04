@@ -11,8 +11,8 @@ package br.com.bandtec.slack.api;
 
     public class SendMessage {
 
-
-        private static String slackWebhookUrl = "https://hooks.slack.comendo/services/T01EWTB3MLY/B01GB26S65S/OszWXcxAuhqTZtzXw6nPTUdr";
+            
+        private static String slackWebhookUrl = "https://hooks.slack.comENDO/services/T01EWTB3MLY/B01GB26S65S/OszWXcxAuhqTZtzXw6nPTUdr";
 
 
 
