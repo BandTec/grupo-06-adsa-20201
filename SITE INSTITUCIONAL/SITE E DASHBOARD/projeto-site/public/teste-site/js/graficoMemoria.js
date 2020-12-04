@@ -1,33 +1,29 @@
 // Função p/ plotar o gráfico
-function plotarMemoria(tempoLeitura, leituraUsoPorc) {
+function plotarMemoria(leituraUsoPorc) {
   var ctx = document.getElementById("chartMemoria").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "doughnut",
     data: {
-      // eixo X
-      labels: tempoLeitura,
+      labels: ['% Uso de RAM', 'Espaço Vazio'],
       datasets: [
         {
-          label: "% de utilização memória",
-          // eixo Y
+          label: "% uso de RAM",
           data: leituraUsoPorc,
           fill: true,
-          backgroundColor: "rgba(170, 120, 166, 0.30)",
-          borderColor: "rgba(170, 120, 166, 0.69)",
-          borderWidth: 1,
+          backgroundColor: ['blue', 'rgba(0,0,0,0.3)'],
+          data: leituraUsoPorc,
+          fill: false
         },
       ],
     },
+
     options: {
+      cutoutPercentage: 80,
+      rotation: 180,
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
+        animationScale: true
       },
     },
   });
@@ -44,18 +40,16 @@ function atualizarMemoria() {
           console.log(leitura);
           // quantidade de elementos dentro da lista
           console.log(leitura.recordsets[0].length);
-          // variavel do eixo y
+
           let leituraUsoPorc = [];
-          // variavel do eixo x
-          let tempoLeitura = [];
 
           for (n = leitura.recordsets[0].length - 1; n >= 0; n--) {
-            leituraUsoPorc.push(leitura.recordsets[0][n].RamUsada);
-            tempoLeitura.push(leitura.recordsets[0][n].dataConsulta);
+            leituraUsoPorc.push(leitura.recordsets[0][n].Ramporcentagem);
+            leituraUsoPorc.push(100 - leitura.recordsets[0][n].Ramporcentagem);
           }
           console.log(leituraUsoPorc);
 
-          plotarMemoria(tempoLeitura, leituraUsoPorc);
+          plotarMemoria(leituraUsoPorc);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na leituras");
@@ -65,7 +59,6 @@ function atualizarMemoria() {
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
 
-  setTimeout(() => {
-   atualizarMemoria();
-  }, 5000);
-}
+  }
+
+  atualizarMemoria();
