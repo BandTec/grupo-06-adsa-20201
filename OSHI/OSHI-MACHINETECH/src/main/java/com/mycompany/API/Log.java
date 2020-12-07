@@ -19,6 +19,7 @@ public class Log {
                 BufferedWriter buffer = new BufferedWriter(criadorArquivo);
                 PrintWriter escritorArquivo = new PrintWriter(buffer)) {
                 escritorArquivo.append(dias + " " + horas + " " + tipo + ":" + mensagem + "\n");
+                
         } catch (Exception ex) {
             Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,0 +1,4 @@
+1/11/120 17:47:17 [ERRO]:Link de acesso ao Slack expirou.
+1/11/120 17:47:17 [MEMORIA]:Memoria RAM perto do teto de uso.
+1/11/120 18:6:4 [ERRO]:Link de acesso ao Slack expirou.
+1/11/120 18:6:4 [MEMORIA]:Memoria RAM perto do teto de uso.

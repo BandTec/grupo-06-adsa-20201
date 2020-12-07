@@ -52,9 +52,9 @@ body {
     float: right;
     width: 20%;
     text-transform: uppercase;
-    position: relative;
+    position: absolute;
     text-align: center;
-    margin-top: 5%;
+    top: 50%;
     right: 3%;
 }
 

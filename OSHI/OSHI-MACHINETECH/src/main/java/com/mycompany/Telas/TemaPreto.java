@@ -82,7 +82,7 @@ public class TemaPreto extends javax.swing.JFrame {
                 String discoTotal = disk.getDiskSize(0).toString();
                 String discoDisponi = disk.getFreeSize(0).toString();
                 String Discoporcentagem = disk.getDiskPercent(0).toString();
-                String nomeMquina = "MaquinaTeste";
+                String nomeMquina = "maquina1";
 
                 try{ template.update(
                         "INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
