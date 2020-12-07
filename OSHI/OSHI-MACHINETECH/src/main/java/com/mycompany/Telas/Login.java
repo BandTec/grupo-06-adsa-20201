@@ -5,6 +5,7 @@
  */
 package com.mycompany.Telas;
 
+import com.mycompany.API.Log;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -328,7 +329,8 @@ public class Login extends javax.swing.JFrame {
             erro.setForeground(Color.red);
             System.out.println("usuario invalido");
             JOptionPane.showMessageDialog(null, "Usuario invalido", "Acesso negado", JOptionPane.ERROR_MESSAGE);
-
+            Log adicionarLog = new Log();
+            adicionarLog.addLog("Log.txt", "ERRO", "Usuário ou senha invalidos.");
         }    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**

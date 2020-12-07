@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import com.mycompany.API.CPU;
 import com.mycompany.API.Disk;
+import com.mycompany.API.Log;
 import com.mycompany.API.RAM;
 
 import java.io.IOException;
@@ -40,9 +41,6 @@ public class TemaPreto extends javax.swing.JFrame {
     private Connection con = new Connection();
     private JdbcTemplate template = new JdbcTemplate(con.getDatasource());
     private Date dataJava = new Date();
-   
-
-
 
     public TemaPreto() {
 
@@ -86,9 +84,14 @@ public class TemaPreto extends javax.swing.JFrame {
                 String Discoporcentagem = disk.getDiskPercent(0).toString();
                 String nomeMquina = "MaquinaTeste";
 
-                template.update(
+                try{ template.update(
                         "INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
                         nomeMquina, CpuPorcent, CpuMaximo, MediaCpu, RamUsada, RamDiponivel, Ramporcentagem, discoTotal, discoDisponi, Discoporcentagem, Statusrede, dataJava);
+            
+                }catch (Exception ex){
+                    Log adicionarLog = new Log();
+                    adicionarLog.addLog("Log.txt", "ERRO", "Erro ao inserir dados no banco.");
+                }
 
                 List resultados = template.queryForList("SELECT * FROM dadosMaquinas");
                 for (Object resultado : resultados) {
@@ -104,11 +107,11 @@ public class TemaPreto extends javax.swing.JFrame {
                 0, 60000); // iserir acada 1 minuto
 
         // --------------------------Personalizando barra no swing---------------------------------------//   
-              try {
+        try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-             Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
-          System.out.println("não foi possivel personalizar as barras na tela de frame em tela inicial");;
+            Logger.getLogger(TemaPreto.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("não foi possivel personalizar as barras na tela de frame em tela inicial");;
         }
         // --------------------------------------------exibir no swing----------------------------------//
         TimerTask mostrar = new TimerTask() {
@@ -155,7 +158,8 @@ public class TemaPreto extends javax.swing.JFrame {
                 if (velocidadeDaNet <= 6000000) {
                     onLabel.setText("OFFLINE");
                     Statusrede = "OFFLINE";
-
+                    Log adicionarLog = new Log();
+                    adicionarLog.addLog("Log.txt", "[INTERNET]", "Máquina não conectaca á internet.");
                 } else {
                     onLabel.setText("ONLINE");
                     Statusrede = "ONLINE";
@@ -198,7 +202,8 @@ public class TemaPreto extends javax.swing.JFrame {
                     System.out.println("---------------enviando relatorio de cpu para o slack-------------------------");
 
                     SendMessage.sendMessage(slackMessage);
-
+                    Log adicionarLog = new Log();
+                    adicionarLog.addLog("Log.txt", "CPU", "CPU perto do teto de uso.");
                 }
                 if (memoriaPorcentagem > 80) {
 
@@ -214,6 +219,8 @@ public class TemaPreto extends javax.swing.JFrame {
                     System.out.println("enviando relatorio de memoria ram para o slack");
 
                     SendMessage.sendMessage(slackMessage);
+                    Log adicionarLog = new Log();
+                    adicionarLog.addLog("Log.txt", "[MEMORIA]", "Memoria RAM perto do teto de uso.");
 
                 }
                 if (discoPorcentagemUsada > 80) {
@@ -230,7 +237,8 @@ public class TemaPreto extends javax.swing.JFrame {
                     System.out.println("--------------------enviando relatorio de disco para o slack----------------------");
 
                     SendMessage.sendMessage(slackMessage);
-
+                    Log adicionarLog = new Log();
+                    adicionarLog.addLog("Log.txt", "[ARMAZENAMENTO]", "Armazenamento da máquina perto do teto de uso.");
                 }
 
             }
@@ -701,7 +709,8 @@ public class TemaPreto extends javax.swing.JFrame {
 
             System.out.println("não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
-
+            Log adicionarLog = new Log();
+            adicionarLog.addLog("Log.txt", "[ERRO]", "Não possivel acessar o site.");
         }
 
 
@@ -714,6 +723,8 @@ public class TemaPreto extends javax.swing.JFrame {
 
             System.out.println("não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
+            Log adicionarLog = new Log();
+            adicionarLog.addLog("Log.txt", "[ERRO]", "Não possivel acessar o site.");
         }
     }//GEN-LAST:event_jLabel21MouseClicked
 
@@ -724,6 +735,8 @@ public class TemaPreto extends javax.swing.JFrame {
 
             System.out.println("erro 1|| data atual|| não foi posivel acesar o site");
             JOptionPane.showMessageDialog(null, "não foi posivel acesar o site", "Alerta do Sistema", JOptionPane.ERROR_MESSAGE);
+            Log adicionarLog = new Log();
+            adicionarLog.addLog("Log.txt", "[ERRO]", "Não possivel acessar o site.");
                     }    }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
@@ -749,13 +762,13 @@ public class TemaPreto extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-          new Login().setVisible(true);
-          dispose();
+        new Login().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         new Login().setVisible(true);
-          dispose();
+        dispose();
     }//GEN-LAST:event_jPanel2MouseClicked
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
