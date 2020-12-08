@@ -1,6 +1,6 @@
 // Função p/ plotar o gráfico
-function plotarDisco(leituraUsoPorc) {
-    var ctx = document.getElementById("chartDisco").getContext("2d");
+function plotarDisco2(leituraUsoPorc) {
+    var ctx = document.getElementById("chartDisco2").getContext("2d");
     var myChart = new Chart(ctx, {
         type: "doughnut",
         data: {
@@ -30,7 +30,7 @@ function plotarDisco(leituraUsoPorc) {
 window.onload = atualizarMemoria();
 
 function atualizarMemoria() {
-    fetch("http://localhost:3000/leituras/dadoDisco", { cache: "no-store" })
+    fetch("http://localhost:3000/leituras/dadoDisco2", { cache: "no-store" })
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(resposta) {
@@ -48,7 +48,7 @@ function atualizarMemoria() {
                     }
                     console.log(leituraUsoPorc);
 
-                    plotarDisco(leituraUsoPorc);
+                    plotarDisco2(leituraUsoPorc);
                 });
             } else {
                 console.error("Nenhum dado encontrado ou erro na leituras");

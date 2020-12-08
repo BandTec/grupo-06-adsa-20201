@@ -1,17 +1,17 @@
 // Função p/ plotar o gráfico
-function plotarDisco(leituraUsoPorc) {
-    var ctx = document.getElementById("chartDisco").getContext("2d");
+function plotarMemoria1(leituraUsoPorc) {
+    var ctx = document.getElementById("chartMemoria1").getContext("2d");
     var myChart = new Chart(ctx, {
         type: "doughnut",
         data: {
             labels: [],
             datasets: [{
-                label: "% de Utilização da Memória",
+                label: "% uso de RAM",
                 data: leituraUsoPorc,
                 fill: true,
                 backgroundColor: ['#2671ce', '#dadada'],
                 data: leituraUsoPorc,
-                fill: false,
+                fill: false
             }, ],
         },
 
@@ -30,7 +30,7 @@ function plotarDisco(leituraUsoPorc) {
 window.onload = atualizarMemoria();
 
 function atualizarMemoria() {
-    fetch("http://localhost:3000/leituras/dadoDisco", { cache: "no-store" })
+    fetch("http://localhost:3000/leituras/dadoMemoria1", { cache: "no-store" })
         .then(function(response) {
             if (response.ok) {
                 response.json().then(function(resposta) {
@@ -43,12 +43,12 @@ function atualizarMemoria() {
                     let leituraUsoPorc = [];
 
                     for (n = leitura.recordsets[0].length - 1; n >= 0; n--) {
-                        leituraUsoPorc.push(leitura.recordsets[0][n].Discoporcentagem);
-                        leituraUsoPorc.push(100 - leitura.recordsets[0][n].Discoporcentagem);
+                        leituraUsoPorc.push(leitura.recordsets[0][n].Ramporcentagem);
+                        leituraUsoPorc.push(100 - leitura.recordsets[0][n].Ramporcentagem);
                     }
                     console.log(leituraUsoPorc);
 
-                    plotarDisco(leituraUsoPorc);
+                    plotarMemoria1(leituraUsoPorc);
                 });
             } else {
                 console.error("Nenhum dado encontrado ou erro na leituras");

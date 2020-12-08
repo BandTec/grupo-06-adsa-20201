@@ -6,12 +6,12 @@ var Leitura = require('../models').Leitura;
 
 /* Recuperar as últimas N leituras */
 // router.get('/ultimas', function(req, res, next) {
-	
+
 // 	// quantas são as últimas leituras que quer? 8 está bom?
 // 	const limite_linhas = 7;
 
 // 	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
-	
+
 // 	const instrucaoSql = `select top ${limite_linhas} 
 // 						temperatura, 
 // 						umidade, 
@@ -35,7 +35,7 @@ var Leitura = require('../models').Leitura;
 
 // tempo real (último valor de cada leitura)
 // router.get('/tempo-real', function (req, res, next) {
-	
+
 // 	console.log(`Recuperando a última leitura`);
 
 // 	const instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico  
@@ -48,13 +48,13 @@ var Leitura = require('../models').Leitura;
 // 			console.error(erro);
 // 			res.status(500).send(erro.message);
 // 		});
-  
+
 // });
 
 
 // estatísticas (max, min, média, mediana, quartis etc)
 // router.get('/estatisticas', function (req, res, next) {
-	
+
 // 	console.log(`Recuperando as estatísticas atuais`);
 
 // 	const instrucaoSql = `select 
@@ -73,31 +73,77 @@ var Leitura = require('../models').Leitura;
 // 			console.error(erro);
 // 			res.status(500).send(erro.message);
 // 		});
-  
+
 // });
 
 router.get('/dadoDisco', (request, response) => {
-    var sql = `select Discoporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas);`;
-    db.query(sql, function (err, result) {
+    var sql = `select Discoporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'Maquina3');`;
+    db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);
     });
 });
+// teste 
+router.get('/dadoDisco1', (request, response) => {
+    var sql = `select Discoporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'maquina1');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+router.get('/dadoDisco2', (request, response) => {
+    var sql = `select Discoporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'Maquina2');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+
 
 router.get('/dadoCPU', (request, response) => {
-    var sql = `select CpuPorcent from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas);`;
-    db.query(sql, function (err, result) {
+    var sql = `select CpuPorcent from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'Maquina3');`;
+    db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);
     });
 });
+// teste
+router.get('/dadoCPU1', (request, response) => {
+    var sql = `select CpuPorcent from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'maquina1');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+router.get('/dadoCPU2', (request, response) => {
+    var sql = `select CpuPorcent from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'maquina2');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+
 
 router.get('/dadoMemoria', (request, response) => {
-    var sql = `select Ramporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas);`;
-    db.query(sql, function (err, result) {
+    var sql = `select Ramporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'Maquina3');`;
+    db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);
     });
 });
-
+// teste
+router.get('/dadoMemoria1', (request, response) => {
+    var sql = `select Ramporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'maquina1');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+router.get('/dadoMemoria2', (request, response) => {
+    var sql = `select Ramporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'maquina2');`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
 module.exports = router;
