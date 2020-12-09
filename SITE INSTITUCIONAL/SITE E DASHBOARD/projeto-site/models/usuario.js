@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
 		// 	primaryKey: true,
 		// 	autoIncrement: true
 		// }		
-		nomeCompleto: {
-			field: 'nomeCompleto',
+		nome: {
+			field: 'nome',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -28,19 +28,9 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		telefoneCelular: {
-			field: 'telefoneCelular',
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		fotoPerfil: {
-			field: 'fotoPerfil',
-			type: DataTypes.STRING,
-			allowNull: false
-		},
 	}, 
 	{
-		tableName: 'Cadastro', 
+		tableName: 'empresa', 
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,
