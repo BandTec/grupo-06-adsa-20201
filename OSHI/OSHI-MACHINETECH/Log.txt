@@ -2,3 +2,8 @@
 1/11/120 17:47:17 [MEMORIA]:Memoria RAM perto do teto de uso.
 1/11/120 18:6:4 [ERRO]:Link de acesso ao Slack expirou.
 1/11/120 18:6:4 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:49:46 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:50:35 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:50:37 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:51:6 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:51:8 [INTERNET]:Máquina não conectaca á internet.
