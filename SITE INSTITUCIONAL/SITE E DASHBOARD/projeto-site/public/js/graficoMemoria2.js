@@ -5,8 +5,9 @@ function plotarMemoria2(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
+            labels: ['Porcentagem de Uso', "Espaço Livre"],
             datasets: [{
-                label: "% uso de RAM",
+                label: ['Porcentagem de Uso', 'Espaço Livre'],
                 data: leituraUsoPorc,
                 fill: true,
                 backgroundColor: ['#2671ce', '#dadada'],
@@ -59,5 +60,5 @@ function atualizarMemoria() {
         });
 
 }
-
 atualizarMemoria();
+

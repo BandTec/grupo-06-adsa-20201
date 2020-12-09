@@ -5,7 +5,7 @@ function plotarCPU(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
-            // labels: ['% Uso de CPU', "Espaço Vazio"],
+            labels: ['Porcentagem de Uso'],
             datasets: [{
                 label: "% de Utilização CPU",
                 data: leituraUsoPorc,

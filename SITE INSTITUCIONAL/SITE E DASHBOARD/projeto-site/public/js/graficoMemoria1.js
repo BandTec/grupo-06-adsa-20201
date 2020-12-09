@@ -5,8 +5,9 @@ function plotarMemoria1(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
+            labels: ['Porcentagem de Uso', "Espaço Livre"],
             datasets: [{
-                label: "% uso de RAM",
+                label: ['Porcentagem de Uso', 'Espaço Livre'],
                 data: leituraUsoPorc,
                 fill: true,
                 backgroundColor: ['#2671ce', '#dadada'],
@@ -57,7 +58,7 @@ function atualizarMemoria() {
         .catch(function(error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-
+        
 }
-
 atualizarMemoria();
+

@@ -5,8 +5,9 @@ function plotarDisco1(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
+            labels: ['Porcentagem de Uso', "Espaço Livre"],
             datasets: [{
-                label: "% de Utilização da Memória",
+                label: ['Porcentagem de Uso', 'Espaço Livre'],
                 data: leituraUsoPorc,
                 fill: true,
                 backgroundColor: ['#2671ce', '#dadada'],
@@ -59,5 +60,5 @@ function atualizarMemoria() {
         });
 
 }
-
 atualizarMemoria();
+

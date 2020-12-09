@@ -38,6 +38,7 @@
 
             <div class="content-topicos">
                 <a href="#">Estação</a>
+                <a href="#" onclick="recarregar()"> Atualizar</a>
                 <a href="dados.html">Dados</a>
             </div>
 
@@ -202,4 +203,8 @@
     }
 
     verificar_autenticacao();
+
+    function recarregar() {
+        document.location.reload(true);
+    }
 </script>

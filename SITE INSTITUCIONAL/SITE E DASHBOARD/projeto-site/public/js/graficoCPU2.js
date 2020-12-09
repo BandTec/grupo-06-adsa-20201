@@ -5,8 +5,9 @@ function plotarCPU2(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
+            labels: ['Porcentagem de Uso', "Espaço Livre"],
             datasets: [{
-                label: "% de Utilização CPU",
+                label: "Porcentagem de Uso",
                 data: leituraUsoPorc,
                 fill: true,
                 backgroundColor: ['#2671ce', '#dadada'],
@@ -59,6 +60,6 @@ function atualizarMemoria() {
         .catch(function(error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-
+    
 }
 atualizarMemoria();
