@@ -85,7 +85,7 @@ router.get('/dadoDisco', (request, response) => {
 });
 // teste 
 router.get('/dadoDisco1', (request, response) => {
-    var sql = `select Discoporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'SegundaMaquina');`;
+    var sql = `select top [10] [Discoporcentagem] from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'SegundaMaquina');`;
     db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);

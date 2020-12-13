@@ -82,11 +82,13 @@ public class TemaPreto extends javax.swing.JFrame {
                 String discoTotal = disk.getDiskSize(0).toString();
                 String discoDisponi = disk.getFreeSize(0).toString();
                 String Discoporcentagem = disk.getDiskPercent(0).toString();
-                String nomeMquina = "TerceiraMaquina";
+                String nomeMquina = "PrimeiraMaquina";
+                String fkEstacao = "1";
 
                 try{ template.update(
-                        "INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
-                        nomeMquina, CpuPorcent, CpuMaximo, MediaCpu, RamUsada, RamDiponivel, Ramporcentagem, discoTotal, discoDisponi, Discoporcentagem, Statusrede, dataJava);
+                        "INSERT INTO dadosMaquinas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        nomeMquina, CpuPorcent, CpuMaximo, MediaCpu, RamUsada, RamDiponivel, 
+                        Ramporcentagem, discoTotal, discoDisponi, Discoporcentagem, Statusrede, dataJava, fkEstacao);
             
                 }catch (Exception ex){
                     Log adicionarLog = new Log();
