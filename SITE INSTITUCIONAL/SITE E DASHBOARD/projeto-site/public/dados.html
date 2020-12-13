@@ -2,295 +2,564 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-
-
-    <title>Dados Linha Amarela</title>
-
-    <style>
-        @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
-        * {
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        .rwd-table {
-            margin: auto;
-            min-width: 300px;
-            max-width: 95%;
-            border-collapse: collapse;
-        }
-        
-        .rwd-table tr:first-child {
-            border-top: none;
-            background: #47a4f7;
-            color: #fff;
-        }
-        
-        .rwd-table tr {
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            background-color: #f5f9fc;
-        }
-        
-        .rwd-table tr:nth-child(odd):not(:first-child) {
-            background-color: #ebf3f9;
-        }
-        
-        .rwd-table th {
-            display: none;
-        }
-        
-        .rwd-table td {
-            display: block;
-        }
-        
-        .rwd-table td:first-child {
-            margin-top: .5em;
-        }
-        
-        .rwd-table td:last-child {
-            margin-bottom: .5em;
-        }
-        
-        .rwd-table td:before {
-            content: attr(data-th) ": ";
-            font-weight: bold;
-            width: 120px;
-            display: inline-block;
-            color: #000;
-        }
-        
-        .rwd-table th,
-        .rwd-table td {
-            text-align: left;
-        }
-        
-        .rwd-table {
-            color: #333;
-            border-radius: .4em;
-            overflow: hidden;
-        }
-        
-        .rwd-table tr {
-            border-color: #bfbfbf;
-        }
-        
-        .rwd-table th,
-        .rwd-table td {
-            padding: .5em 1em;
-        }
-        
-        @media screen and (max-width: 601px) {
-            .rwd-table tr:nth-child(2) {
-                border-top: none;
-            }
-        }
-        
-        @media screen and (min-width: 600px) {
-            .rwd-table tr:hover:not(:first-child) {
-                background-color: #d8e7f3;
-            }
-            .rwd-table td:before {
-                display: none;
-            }
-            .rwd-table th,
-            .rwd-table td {
-                display: table-cell;
-                padding: .25em .5em;
-            }
-            .rwd-table th:first-child,
-            .rwd-table td:first-child {
-                padding-left: 0;
-            }
-            .rwd-table th:last-child,
-            .rwd-table td:last-child {
-                padding-right: 0;
-            }
-            .rwd-table th,
-            .rwd-table td {
-                padding: 1em !important;
-            }
-        }
-        
-        table {
-            position: absolute;
-            top: 80%;
-        }
-        /* THE END OF THE IMPORTANT STUFF */
-        /* Basic Styling */
-        
-        h1 {
-            text-align: center;
-            font-size: 2.4em;
-            color: #f2f2f2;
-        }
-        
-        .container {
-            display: block;
-            text-align: center;
-        }
-        
-        h3 {
-            display: inline-block;
-            position: relative;
-            text-align: center;
-            font-size: 1.5em;
-            color: #cecece;
-        }
-        
-        h3:before {
-            content: "\25C0";
-            position: absolute;
-            left: -50px;
-            -webkit-animation: leftRight 2s linear infinite;
-            animation: leftRight 2s linear infinite;
-        }
-        
-        h3:after {
-            content: "\25b6";
-            position: absolute;
-            right: -50px;
-            -webkit-animation: leftRight 2s linear infinite reverse;
-            animation: leftRight 2s linear infinite reverse;
-        }
-        
-        @-webkit-keyframes leftRight {
-            0% {
-                -webkit-transform: translateX(0)
-            }
-            25% {
-                -webkit-transform: translateX(-10px)
-            }
-            75% {
-                -webkit-transform: translateX(10px)
-            }
-            100% {
-                -webkit-transform: translateX(0)
-            }
-        }
-        
-        @keyframes leftRight {
-            0% {
-                transform: translateX(0)
-            }
-            25% {
-                transform: translateX(-10px)
-            }
-            75% {
-                transform: translateX(10px)
-            }
-            100% {
-                transform: translateX(0)
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="icon.png">
+  <title>
+    Relatórios
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
+  <link href="nucleo-icons.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="black-dashboard.css" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <!-- <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
 </head>
 
-<body>
-    <section class="content-global">
-        <div class="content-menu">
-            <h1>
-                <a style="text-decoration: none;" href="#" id="nomeLinha">Relatórios de Dados</a>
-            </h1>
+<body class="">
+  <div class="wrapper">
+    <div class="sidebar">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="#" class="simple-text logo-mini">
+            <i class="fas fa-table"></i>
+          </a>
+          <a href="javascript:void(0)" class="simple-text logo-normal">
+            <p><!--nome da estação pega do banco (isso vai pro js depois)--></p>
+          </a>
         </div>
-
-        <div class="content-topicos">
-            <a href="dadoMaquina.html">Voltar</a>
-            <a href="#" onclick="recarregar()"> Atualizar</a>
-            <a href="index.html">Sair</a>
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <i class="fas fa-home"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="./icons.html">
+              <i class="fas fa-question-circle"></i>
+              <p>Suporte</p>
+            </a>
+          </li>
+          <li>
+            <a href="./map.html">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Mapa</p>
+            </a>
+          </li>
+          <li>
+            <a href="./notifications.html">
+              <i class="fas fa-bell"></i>
+              <p>Notificações</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user.html">
+              <i class="fas fa-user"></i>
+              <p>Perfil</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:void(0)">Relatório de dados</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+              <li class="search-bar input-group">
+                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
+                  <i class="fas fa-search"></i>
+                  <span class="d-lg-none d-md-block">Pesquisar</span>
+                </button>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <div class="notification d-none d-lg-block d-xl-block"></div>
+                  <i class="fas fa-bell"></i>
+                  <p class="d-lg-none">
+                    Notifications
+                  </p>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                  <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
+                </ul>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <div class="photo">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <b class="caret d-none d-lg-block d-xl-block"></b>
+                  <p class="d-lg-none">
+                    Log out
+                  </p>
+                </a>
+                <ul class="dropdown-menu dropdown-navbar">
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                </ul>
+              </li>
+              <li class="separator d-lg-none"></li>
+            </ul>
+          </div>
         </div>
-    </section>
-    <table class="rwd-table">
-        <thead>
-            <!--Os títulos, por algum motivo somem quando a API está rodando-->
-            <tbody>
-                <!-- <th>Id</th>
-                <th>Nome Maquina</th>
-                <th>CPU maxímo</th>
-                <th>média CPU</th>
-                <th>Ram Utilizada</th>
-                <th>Ram Disponivel</th>
-                <th>Disco Total</th>
-                <th>Disco Disponivel</th>
-                <th>Status Rede</th>
-                <th>Data Consulta</th> -->
-            </tbody>
-        </thead>
-    </table>
+      </nav>
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pesquisar">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title">Relatório</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+                      <!-- <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Nome da Máquina
+                        </th>
+                        <th>
+                          Máxima da CPU
+                        </th>
+                        <th class="text-center">
+                          Ram Utilizada
+                        </th>
+                        <th class="text-center">
+                          Ram Disponível
+                        </th>
+                        <th class="text-center">
+                          Disco Total
+                        </th>
+                        <th class="text-center">
+                          Disco Disponível
+                        </th>
+                        <th class="text-center">
+                          Status da Rede
+                        </th>
+                        <th class="text-center">
+                          Data da Consulta
+                        </th>
+                      </tr> -->
+                      <tbody>
+                        <!-- <tr>
+                          <td>
+                            Dakota Rice
+                          </td>
+                          <td>
+                            Niger
+                          </td>
+                          <td>
+                            Oud-Turnhout
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Minerva Hooper
+                          </td>
+                          <td>
+                            Curaçao
+                          </td>
+                          <td>
+                            Sinaai-Waas
+                          </td>
+                          <td class="text-center">
+                            $23,789
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Sage Rodriguez
+                          </td>
+                          <td>
+                            Netherlands
+                          </td>
+                          <td>
+                            Baileux
+                          </td>
+                          <td class="text-center">
+                            $56,142
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Philip Chaney
+                          </td>
+                          <td>
+                            Korea, South
+                          </td>
+                          <td>
+                            Overland Park
+                          </td>
+                          <td class="text-center">
+                            $38,735
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Doris Greene
+                          </td>
+                          <td>
+                            Malawi
+                          </td>
+                          <td>
+                            Feldkirchen in Kärnten
+                          </td>
+                          <td class="text-center">
+                            $63,542
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Mason Porter
+                          </td>
+                          <td>
+                            Chile
+                          </td>
+                          <td>
+                            Gloucester
+                          </td>
+                          <td class="text-center">
+                            $78,615
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Jon Porter
+                          </td>
+                          <td>
+                            Portugal
+                          </td>
+                          <td>
+                            Gloucester
+                          </td>
+                          <td class="text-center">
+                            $98,615
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr> -->
+                      </tbody>
+                    </thead>
+                    
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                Machinetech
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="cadastro.html" class="nav-link">
+                Cadastre - se
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="login.html" class="nav-link">
+                Faça login
+              </a>
+            </li>
+          </ul>
+          <div class="copyright">
+            &copy;
+            <!-- <script>
+            document.write(new Date().getFullYear())
+          </script> -->
+            2020 Machinetech. All rights reserved. Design by
+            <a href="index.html" target="_blank" style="color: #648cfe;">Machinetech Design</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <!-- <i class="fa fa-cog fa-2x"> </i> -->
+        <i class="fas fa-info-circle fa-2x" style="color: white;"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title">Inovação Machinetech</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors text-center">
+              <!-- <span class="badge filter badge-primary active" data-color="primary"></span>
+              <span class="badge filter badge-info" data-color="blue"></span>
+              <span class="badge filter badge-success" data-color="green"></span> -->
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="adjustments-line text-center color-change">
+          <span class="color-label">Google</span>
+          <!-- <span class="badge light-badge mr-2"></span>
+          <span class="badge dark-badge ml-2"></span> -->
+          <span class="color-label">Maps</span>
+        </li>
+        <li class="button-container">
+          <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
+          <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
+            Documentation
+          </a>
+        </li>
+        <li class="header-title">Obrigado por escolher a Machinetech!</li>
+        <li class="button-container text-center">
+          <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-github"></i> &middot; 45</button>
+          <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
+          <br>
+          <br>
+          <a class="github-button" href="#" data-icon="octicon-star" data-size="large" 
+          data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Contrate</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="bootstrap-notify.js"></script>
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="black-dashboard.min.js"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <!-- <script src="../assets/demo/demo.js"></script> -->
 </body>
 
 </html>
-
 <script>
-    async function pegarConteudo() {
-        try {
-            const maquinas = await fetch(`http://localhost:3000/dados/Maquinas`);
-            const dataMaquina = await maquinas.json();
-            mostrarDados(dataMaquina);
-            console.log(dataMaquina);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    pegarConteudo();
+  async function pegarConteudo() {
+      try {
+          const maquinas = await fetch(`http://localhost:3000/dados/Maquinas`);
+          const dataMaquina = await maquinas.json();
+          mostrarDados(dataMaquina);
+          console.log(dataMaquina);
+      } catch (error) {
+          console.log(error);
+      }
+  }
+  pegarConteudo();
 
-    function mostrarDados(dadoMaquina) {
-        let show = '';
-        console.log('Dados Maquinas', dadoMaquina);
-        for (let dado of dadoMaquina) {
-            show += `
-            <tr>
-                <td data-th="Supplier Code">
-                    ${dado.id}
-                </td>
-                <td data-th="Supplier Name">
-                    ${dado.Nome_maquina}
-                </td>
-                <td data-th="Supplier Name">
-                    ${dado.CpuMaximo}
-                </td>
-                <td data-th="Invoice Date">
-                    ${dado.MediaCpu}
-                </td>
-                <td data-th="Due Date">
-                    ${dado.RamUsada}
-                </td>
-                <td data-th="Net Amount">
-                    ${dado.RamDisponivel}
-                </td>
-                <td data-th="Supplier Code">
-                    ${dado.discoTotal}
-                </td>
-                <td data-th="Invoice Number">
-                    ${dado.discoDisponi}
-                </td>
-                <td data-th="Net Amount">
-                    ${dado.Statusrede}
-                </td>
-                <td data-th="Net Amount">
-                    ${dado.dataConsulta}
-                </td>
-                </tr>
-            `;
-        }
-        document.querySelector('tbody').innerHTML = `
-                <th>Id</th>
-                <th>Nome Maquina</th>
-                <th>CPU maxímo</th>
-                <th>média CPU</th>
-                <th>Ram Utilizada</th>
-                <th>Ram Disponivel</th>
-                <th>Disco Total</th>
-                <th>Disco Disponivel</th>
-                <th>Status Rede</th>
-                <th>Data Consulta</th>
-        ` + show;
-    }
+  function mostrarDados(dadoMaquina) {
+      let show = '';
+      console.log('Dados Maquinas', dadoMaquina);
+      for (let dado of dadoMaquina) {
+          show += `
+          <tr>
+              <td data-th="Supplier Code">
+                  ${dado.id}
+              </td>
+              <td data-th="Supplier Name">
+                  ${dado.Nome_maquina}
+              </td>
+              <td data-th="Supplier Name">
+                  ${dado.CpuMaximo}
+              </td>
+              <td data-th="Invoice Date">
+                  ${dado.MediaCpu}
+              </td>
+              <td data-th="Due Date">
+                  ${dado.RamUsada}
+              </td>
+              <td data-th="Net Amount">
+                  ${dado.RamDisponivel}
+              </td>
+              <td data-th="Supplier Code">
+                  ${dado.discoTotal}
+              </td>
+              <td data-th="Invoice Number">
+                  ${dado.discoDisponi}
+              </td>
+              <td data-th="Net Amount">
+                  ${dado.Statusrede}
+              </td>
+              <td data-th="Net Amount">
+                  ${dado.dataConsulta}
+              </td>
+              </tr>
+          `;
+      }
+      document.querySelector('tbody').innerHTML = `
+              <th>Id</th>
+              <th>Nome Maquina</th>
+              <th>CPU maxímo</th>
+              <th>média CPU</th>
+              <th>Ram Utilizada</th>
+              <th>Ram Disponivel</th>
+              <th>Disco Total</th>
+              <th>Disco Disponivel</th>
+              <th>Status Rede</th>
+              <th>Data Consulta</th>
+      ` + show;
+  }
 
-    function recarregar() {
-        document.location.reload(true);
-    }
+  function recarregar() {
+      document.location.reload(true);
+  }
 </script>
