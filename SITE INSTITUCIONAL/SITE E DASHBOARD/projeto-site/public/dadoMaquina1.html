@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
+
+    <title>Dado Máquina</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
+    <script src="js/Chart.min.js"></script>
+    <script src="js/utils.js"></script>
+    <!-- <script src="js/graficoCPU.js"></script>
+    <script src="js/graficoDisco.js"></script>
+    <script src="js/graficoMemoria.js"></script> -->
+
+
+</head>
+
+<body>
+    <section class="content-global">
+        <div></div>
+        <div class="content-menu">
+            <h1>
+                <a style="text-decoration: none;" id="nomeLinha">Primeira Máquina</a>
+            </h1>
+
+            <!-- São Paulo-Morumbi.
+            Pinheiros.
+            Faria Lima.
+            Fradique Coutinho.
+            Oscar Freire.
+            Paulista.
+            República. -->
+
+            <div class="content-topicos">
+                <a href="indexConsolacao.html">Estação</a>
+                <a href="#" onclick="recarregar()"> Atualizar</a>
+                <a href="dados.html">Dados</a>
+            </div>
+
+        </div>
+        <div class="content-estacoes">
+            <!--primeria linha-->
+            <div class="box-estacoes" id="">
+                <h1>CPU</h1>
+                <div class="box">
+                    <canvas id="chartCPU" height="200px" width="100%"></canvas>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Memória</h1>
+                <div class="box">
+                    <canvas id="chartMemoria" height="200px" width="100%"></canvas>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Disco</h1>
+                <div class="box">
+                    <canvas id="chartDisco" height="200px" width="100%"></canvas>
+                    <div class="chart" data-percent="85" data-scale-color="#ffb400">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-menu">
+            <h1>
+                <a style="text-decoration: none;" id="nomeLinha">Segunda Máquina</a>
+            </h1>
+
+        </div>
+        <div class="content-estacoes">
+
+            <div class="box-estacoes" id="">
+                <h1>CPU</h1>
+                <div class="box">
+                    <canvas id="chartCPU1" height="200px" width="100%"></canvas>
+                </div>
+            </div>
+            <div class="box-estacoes">
+                <h1>Memória</h1>
+                <div class="box">
+                    <canvas id="chartMemoria1" height="200px" width="100%"></canvas>
+                </div>
+            </div>
+
+            <div class="box-estacoes">
+                <h1>Disco</h1>
+                <div class="box">
+                    <canvas id="chartDisco1" height="200px" width="100%"></canvas>
+                    <div class="chart" data-percent="85" data-scale-color="#ffb400">
+
+                    </div>
+
+                </div>
+                <!-- <div class="box-estacoes"></div>
+            <div class="box-estacoes"></div> -->
+
+            </div>
+
+            <div class="content-menu">
+                <h1>
+                    <a style="text-decoration: none;" id="nomeLinha">Terceira Máquina</a>
+                </h1>
+
+            </div>
+            <div class="content-estacoes">
+
+                <div class="box-estacoes" id="">
+                    <h1>CPU</h1>
+                    <div class="box">
+                        <canvas id="chartCPU2" height="200px" width="100%"></canvas>
+                    </div>
+                </div>
+                <div class="box-estacoes">
+                    <h1>Memória</h1>
+                    <div class="box">
+                        <canvas id="chartMemoria2" height="200px" width="100%"></canvas>
+                    </div>
+                </div>
+
+                <div class="box-estacoes">
+                    <h1>Disco</h1>
+                    <div class="box">
+                        <canvas id="chartDisco2" height="200px" width="100%"></canvas>
+                        <div class="chart" data-percent="85" data-scale-color="#ffb400">
+
+                        </div>
+
+                    </div>
+                    <!-- <div class="box-estacoes"></div>
+                <div class="box-estacoes"></div> -->
+
+                </div>
+    </section>
+    <section class="footer">
+
+    </section>
+
+
+    </div>
+
+    </div>
+    </div>
+
+    <script src="./js/graficoDisco.js"></script>
+    <script src="./js/graficoMemoria.js"></script>
+    <script src="./js/graficoCPU.js"></script>
+    <script src="./js/graficoCPU1.js"></script>
+    <script src="./js/graficoDisco1.js"></script>
+    <script src="./js/graficoMemoria1.js"></script>
+    <script src="./js/graficoCPU2.js"></script>
+    <script src="./js/graficoDisco2.js"></script>
+    <script src="./js/graficoMemoria2.js"></script>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+<!-- Validações de login -->
+<script>
+    function logoff() {
+        finalizar_sessao();
+        sessionStorage.clear();
+        redirecionar_login();
+        window.location.href = 'index.html';
+    }
+
+    function verificar_autenticacao() {
+        login_usuario = sessionStorage.login_usuario_meuapp;
+        nome_usuario = sessionStorage.nome_usuario_meuapp;
+
+        if (login_usuario == undefined) {
+            redirecionar_login();
+
+        } else {
+            b_usuario.innerHTML = login_usuario;
+            b_nome.innerHTML = nome_usuario;
+
+            validar_sessao();
+        }
+    }
+
+    verificar_autenticacao();
+
+    function recarregar() {
+        document.location.reload(true);
+    }
+</script>
