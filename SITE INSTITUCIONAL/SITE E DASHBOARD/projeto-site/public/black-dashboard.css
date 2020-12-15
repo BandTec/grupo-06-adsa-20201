@@ -2086,12 +2086,38 @@ pre code {
   font-weight: 400;
   line-height: 1.428571;
   color: rgba(255, 255, 255, 0.8);
-  background-color: transparent;
+  background-color: white;
   background-clip: padding-box;
   border: 1px solid #cad1d7;
   border-radius: 0.25rem;
   box-shadow: none;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.select {
+  width: 20%;
+  margin-left: 1%;
+}
+.choose1 {
+  position: absolute;
+  top: 10.5%;
+  left: 25%;
+  z-index: 100;
+}
+.choose2 {
+  position: absolute;
+  right: 45.5%;
+  top: 10.5%;
+  z-index: 100;
+}
+.escolher{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+select:invalid {
+  color: #1c1c1c;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2615,13 +2641,14 @@ textarea.form-control.is-invalid {
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
+  background-color: #7196fe;
+  border: 1px solid t#7196fe;
   padding: 11px 40px;
   font-size: 0.875rem;
   line-height: 1.35em;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s 
+  ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -13088,7 +13115,6 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .navbar .navbar-nav>a.btn.dropdown-toggle:after {
   margin-left: 30px !important;
 }
-
 .btn-primary {
   background: #e14eca;
   background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
@@ -13101,6 +13127,11 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
   transition: all 0.15s ease;
   box-shadow: none;
   color: #ffffff;
+}
+
+.colorthatiwant {
+  margin-top: 1px;
+  margin-left: 10px;
 }
 
 .btn-primary.animation-on-hover:hover {

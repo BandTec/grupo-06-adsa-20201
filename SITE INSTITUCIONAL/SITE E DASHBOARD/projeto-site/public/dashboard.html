@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="icon.png">
   <title>
-    Estações Linha Amarela
+    Machinetech Dashboard
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -42,8 +42,14 @@
             </a>
           </li>
           <li>
+            <a href="dados.html">
+              <i class="fas fa-table"></i>
+              <p>Relatório</p>
+            </a>
+          </li>
+          <li>
             <a href="https://machinetechsolutions.slack.com/archives/C01E72Z0WAW">
-              <i class="fas fa-question-circle"></i>
+              <i class="fab fa-slack"></i>
               <p>Suporte</p>
             </a>
           </li>
@@ -51,18 +57,6 @@
             <a href="#">
               <i class="fas fa-map-marker-alt"></i>
               <p>Mapa</p>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fas fa-bell"></i>
-              <p>Notificações</p>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fas fa-user"></i>
-              <p>Perfil</p>
             </a>
           </li>
         </ul>
@@ -78,7 +72,7 @@
                 <i class="fas fa-ellipsis-h" style="color: white;"></i>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Estações Linha 4 Amarela</a>
+            <a class="navbar-brand" href="#">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -156,9 +150,23 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-              
+
                 <div class="card-body all-icons">
                   <div id="row" class="row">
+                    <div class="escolher">
+
+                      <h5 class="card-category choose1">Escolher Máquina</h5>
+                      <select required onchange="buscarMaquina()" placeholder="Máquina" id="idRestaurante"
+                        class="form-control select">
+                      </select>
+
+                      <h5 class="card-category choose2" style="margin-left: 3px;">Escolher Estação</h5>
+                      <select onchange="buscarDados()" name="" id="idMaquina" class="form-control select">
+                      </select>
+
+                      <button class="btn btn-fill btn-primary colorthatiwant"
+                        onclick="carregarGrafico(idRestaurante.value)">Carregar Dados</button>
+                    </div>
                     <!-- <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
                       <a href="#">
                         <div class="font-icon-detail">
@@ -255,6 +263,47 @@
                         </div>
                       </a>
                     </div> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">CPU</h5>
+                        <h3 class="card-title"></h3>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <canvas id="chartCPU" height="200px" width="100%"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">Disco</h5>
+                        <h3 class="card-title"></h3>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <canvas id="chartDisco" height="200px" width="100%"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="card card-chart">
+                      <div class="card-header">
+                        <h5 class="card-category">Memória</h5>
+                        <h3 class="card-title"></h3>
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <canvas id="chartMemoria" height="200px" width="100%"></canvas>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -475,37 +524,112 @@
 
 </html>
 <script>
-  async function pegarConteudo() {
-      try {
-          const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
-          const dataEstacao = await estacao.json();
-          mostrarDados(dataEstacao);
-          console.log(dataEstacao);
-      } catch (error) {
-          // console.log(error);
-      }
-  }
-  pegarConteudo();
+  // async function pegarConteudo() {
+  //     try {
+  //         const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
+  //         const dataEstacao = await estacao.json();
+  //         mostrarDados(dataEstacao);
+  //         console.log(dataEstacao);
+  //     } catch (error) {
+  //         // console.log(error);
+  //     }
+  // }
+  // pegarConteudo();
 
-  function mostrarDados(dadoEstacoes) {
-      let show = '';
-      console.log('Estações', dadoEstacoes);
-      for (let dado of dadoEstacoes) {
-          show += `
-          <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                      <a href="#">
-                        <div class="font-icon-detail">
-                          <i class="fas fa-subway"></i>
-                          <p>${dado.nomeEstacao}</p>
-                        </div>
-                      </a>
-                    </div>
-          `;
+  // function mostrarDados(dadoEstacoes) {
+  //     let show = '';
+  //     console.log('Estações', dadoEstacoes);
+  //     for (let dado of dadoEstacoes) {
+  //         show += `
+  //         <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+  //                     <a href="#">
+  //                       <div class="font-icon-detail">
+  //                         <i class="fas fa-subway"></i>
+  //                         <p>${dado.nomeEstacao}</p>
+  //                       </div>
+  //                     </a>
+  //                   </div>
+  //         `;
+  //     }
+  //     document.getElementById("row").innerHTML += show;
+  // }
+
+  // function recarregar() {
+  //     document.location.reload(true);
+  //}
+  const id = sessionStorage.idRestaurante;
+
+  function cadastrarh() {
+    var formulario = new URLSearchParams(new FormData(form_cadastroh));
+    fetch("/hamburgueria/cadastrar", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+
+        window.location.href = 'contatoPerfil.html';
+
+      } else {
+
+        alert('Erro de cadastro!');
+        // response.text().then(function (resposta) {
+        //     div_erro.innerHTML = resposta;
+        // });
       }
-      document.getElementById("row").innerHTML += show;
+    });
+
+    return false;
   }
 
-  function recarregar() {
-      document.location.reload(true);
+  function buscarHamburgueria() {
+    fetch(`/hamburgueria/buscar_hamburguerias/${sessionStorage.idCliente_usuario_meuapp}`, {
+      method: "GET",
+
+
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resultado) {
+          for (var i = 0; i < resultado.length; i++) {
+            idRestaurante.innerHTML += `<option value = "${resultado[i].idRestaurante}"> ${resultado[i].Nome_Restaurante}  </option>`;
+          }
+        })
+      }
+
+    })
+
+
   }
+
+  function buscarMaquina() {
+    var id_Restaurante = idRestaurante.value;
+    console.log(id_Restaurante);
+    idMaquina.innerHTML = '';
+    fetch(`/maquina/buscar_maquinas/${id_Restaurante}`, {
+      method: "GET",
+
+
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resultado) {
+
+          for (var i = 0; i < resultado.length; i++) {
+            console.log('teste', resultado[i].Nome_maquina)
+            idMaquina.innerHTML += `<option value = "${resultado[i].idMaquina}"> ${resultado[i].Nome_maquina}  </option>`;
+          }
+        })
+      }
+
+    })
+
+
+  }
+
+  function carregarGrafico(idRestaurante) {
+    receber_leitura(idRestaurante);
+    receber_leitura2(idRestaurante);
+    receber_leitura3(idRestaurante);
+
+  }
+  window.onload = buscarHamburgueria;
 </script>
