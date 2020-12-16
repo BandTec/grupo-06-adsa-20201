@@ -158,6 +158,7 @@
               <div class="card-header">
               
                 <div class="card-body all-icons">
+                    <!-- <button id="btn-teste" value="1">Teste</button> -->
                   <div id="row" class="row">
                     <!-- <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
                       <a href="#">
@@ -477,26 +478,26 @@
 <script>
   async function pegarConteudo() {
       try {
-          const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
-          const dataEstacao = await estacao.json();
-          mostrarDados(dataEstacao);
-          console.log(dataEstacao);
+          const maquinaEstacao = await fetch(`http://localhost:3000/maquinaEstacao/maquinaEstacao`);
+          const dataMaquinaEstacao = await maquinaEstacao.json();
+          mostrarDados(dataMaquinaEstacao);
+          console.log(dataMaquinaEstacao);
       } catch (error) {
           // console.log(error);
       }
   }
   pegarConteudo();
 
-  function mostrarDados(dadoEstacoes) {
+  function mostrarDados(dadoMaquinaEstacoes) {
       let show = '';
-      console.log('Estações', dadoEstacoes);
-      for (let dado of dadoEstacoes) {
+      console.log('Maquina por estação', dadoMaquinaEstacoes);
+      for (let dado of dadoMaquinaEstacoes) {
           show += `
           <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                      <a href="maquinas.html">
+                      <a href="dashboard.html">
                         <div class="font-icon-detail">
                           <i class="fas fa-subway"></i>
-                          <p>${dado.nomeEstacao}</p>
+                          <p>${dado.hostname}</p>
                         </div>
                       </a>
                     </div>
@@ -505,7 +506,7 @@
       document.getElementById("row").innerHTML += show;
   }
 
-  function recarregar() {
-      document.location.reload(true);
-  }
+//   function recarregar() {
+//       document.location.reload(true);
+  
 </script>

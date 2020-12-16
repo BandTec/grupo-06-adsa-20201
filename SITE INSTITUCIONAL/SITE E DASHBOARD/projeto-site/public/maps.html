@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="menu-lateral">
+        <div class="linha-menu title">
+            <img src="img/relatorio.svg" class="icon-inicial">
+            <h2>Monitoramento</h2>
+        </div>
+        <div class="linha-menu">
+            <img src="img/dashboard.svg" class="icon">
+            <h2>Dashboard</h2>
+        </div>
+        <div class="linha-menu">
+            <img src="img/train.svg" class="icon">
+            <h2>Estação</h2>
+        </div>
+        <div class="linha-menu">
+            <img src="img/maquinas.svg" class="icon">
+            <h2>Maquinas</h2>
+        </div>
+        <div class="linha-menu">
+            <img src="img/tabela.svg" class="icon">
+            <h2>Dados</h2>
+        </div>
+        <a href="https://machinetechsolutions.slack.com/archives/C01E72Z0WAW">
+            <div class="linha-menu">
+                <img src="img/slack.svg" class="icon">
+                <h2>Slack</h2>
+            </div>
+        </a>
+        <div class="linha-menu">
+            <img src="img/location.svg" class="icon">
+            <h2>Maps</h2>
+        </div>
+
+    </div>
+    <div class="menu-horizontal">
+        <div class="content-logo">
+            <h1>Dashboard</h1>
+        </div>
+
+
+
+    </div>
+
+    <div class="content-grande">
+        <!--primeria linha-->
+        <div class="box-grande" id="">
+            <h3>Localização dos:</h3>
+            <h1>Terminais de Recarga</h1>
+            <!-- <h2 id="boasVindas">BOM DIA</h2> -->
+        </div>
+    </div>
+
+    <div class="content-estacoes">
+
+        <div class="box-estacoes" id="" onclick="getLocationLuz()" style="cursor: pointer;">
+
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Luz</h2>
+
+        </div>
+
+        <div class="box-estacoes" id="" onclick="getLocationmackenzie()" style="cursor: pointer;">
+
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Mackenzie</h2>
+
+        </div>
+
+        <div class="box-estacoes" id="" onclick="getLocationPaulista()" style="cursor: pointer;">
+
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Paulista</h2>
+
+        </div>
+    </div>
+    <div class="content-estacoes">
+
+        <div class="box-estacoes" id="" onclick="getLocationPinheiros()" style="cursor: pointer;">
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Pinheiros</h2>
+
+        </div>
+
+          <div class="box-estacoes" id="" onclick="getLocationrepublica()" style="cursor: pointer;">
+            <!-- <h1>localização</h1> -->
+
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Republica</h2>
+
+        </div>
+
+        <div class="box-estacoes" id="" onclick="getLocationbutanta()" style="cursor: pointer;">
+
+            <img src="img/location.svg" class="icon">
+            <h2 style="margin-top: 0px; color:white;">Butantã</h2>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="js/localization.js">
+</script>
