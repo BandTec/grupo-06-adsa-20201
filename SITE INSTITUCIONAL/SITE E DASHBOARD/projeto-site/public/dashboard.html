@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="nucleo-icons.css">
   <!-- CSS Files -->
   <link rel="stylesheet" href="black-dashboard.css">
+  <script src="js/Chart.min.js"></script>
+    <script src="js/utils.js"></script>
 </head>
 
 <body class="">
@@ -154,18 +156,8 @@
                 <div class="card-body all-icons">
                   <div id="row" class="row">
                     <div class="escolher">
-
-                      <h5 class="card-category choose1">Escolher Máquina</h5>
-                      <select required onchange="buscarMaquina()" placeholder="Máquina" id="idRestaurante"
-                        class="form-control select">
-                      </select>
-
-                      <h5 class="card-category choose2" style="margin-left: 3px;">Escolher Estação</h5>
-                      <select onchange="buscarDados()" name="" id="idMaquina" class="form-control select">
-                      </select>
-
-                      <button class="btn btn-fill btn-primary colorthatiwant"
-                        onclick="carregarGrafico(idRestaurante.value)">Carregar Dados</button>
+                      <a href="maquinas.html"><button class="btn btn-fill btn-primary colorthatiwant"
+                        onclick="carregarGrafico(idRestaurante.value)">Escolher Máquina</button></a>
                     </div>
                     <!-- <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
                       <a href="#">
@@ -520,10 +512,18 @@
           application: "black-dashboard-free"
         });
     </script> -->
+    <script src="js/Chart.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="./js/graficoDisco.js"></script>
+  <script src="./js/graficoMemoria.js"></script>
+  <script src="./js/graficoCPU.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
 </body>
 
 </html>
 <script>
+  
   // async function pegarConteudo() {
   //     try {
   //         const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
@@ -557,79 +557,79 @@
   // function recarregar() {
   //     document.location.reload(true);
   //}
-  const id = sessionStorage.idRestaurante;
+  // const id = sessionStorage.idRestaurante;
 
-  function cadastrarh() {
-    var formulario = new URLSearchParams(new FormData(form_cadastroh));
-    fetch("/hamburgueria/cadastrar", {
-      method: "POST",
-      body: formulario
-    }).then(function (response) {
+  // function cadastrarh() {
+  //   var formulario = new URLSearchParams(new FormData(form_cadastroh));
+  //   fetch("/hamburgueria/cadastrar", {
+  //     method: "POST",
+  //     body: formulario
+  //   }).then(function (response) {
 
-      if (response.ok) {
+  //     if (response.ok) {
 
-        window.location.href = 'contatoPerfil.html';
+  //       window.location.href = 'contatoPerfil.html';
 
-      } else {
+  //     } else {
 
-        alert('Erro de cadastro!');
-        // response.text().then(function (resposta) {
-        //     div_erro.innerHTML = resposta;
-        // });
-      }
-    });
+  //       alert('Erro de cadastro!');
+  //       // response.text().then(function (resposta) {
+  //       //     div_erro.innerHTML = resposta;
+  //       // });
+  //     }
+  //   });
 
-    return false;
-  }
+  //   return false;
+  // }
 
-  function buscarHamburgueria() {
-    fetch(`/hamburgueria/buscar_hamburguerias/${sessionStorage.idCliente_usuario_meuapp}`, {
-      method: "GET",
-
-
-    }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resultado) {
-          for (var i = 0; i < resultado.length; i++) {
-            idRestaurante.innerHTML += `<option value = "${resultado[i].idRestaurante}"> ${resultado[i].Nome_Restaurante}  </option>`;
-          }
-        })
-      }
-
-    })
+  // function buscarHamburgueria() {
+  //   fetch(`/hamburgueria/buscar_hamburguerias/${sessionStorage.idCliente_usuario_meuapp}`, {
+  //     method: "GET",
 
 
-  }
+    // }).then(function (response) {
+    //   if (response.ok) {
+    //     response.json().then(function (resultado) {
+    //       for (var i = 0; i < resultado.length; i++) {
+    //         idRestaurante.innerHTML += `<option value = "${resultado[i].idRestaurante}"> ${resultado[i].Nome_Restaurante}  </option>`;
+    //       }
+    //     })
+    //   }
 
-  function buscarMaquina() {
-    var id_Restaurante = idRestaurante.value;
-    console.log(id_Restaurante);
-    idMaquina.innerHTML = '';
-    fetch(`/maquina/buscar_maquinas/${id_Restaurante}`, {
-      method: "GET",
-
-
-    }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resultado) {
-
-          for (var i = 0; i < resultado.length; i++) {
-            console.log('teste', resultado[i].Nome_maquina)
-            idMaquina.innerHTML += `<option value = "${resultado[i].idMaquina}"> ${resultado[i].Nome_maquina}  </option>`;
-          }
-        })
-      }
-
-    })
+    // })
 
 
-  }
+  // }
 
-  function carregarGrafico(idRestaurante) {
-    receber_leitura(idRestaurante);
-    receber_leitura2(idRestaurante);
-    receber_leitura3(idRestaurante);
+  // function buscarMaquina() {
+  //   var id_Restaurante = idRestaurante.value;
+  //   console.log(id_Restaurante);
+  //   idMaquina.innerHTML = '';
+  //   fetch(`/maquina/buscar_maquinas/${id_Restaurante}`, {
+  //     method: "GET",
 
-  }
-  window.onload = buscarHamburgueria;
+
+    // }).then(function (response) {
+    //   if (response.ok) {
+    //     response.json().then(function (resultado) {
+
+    //       for (var i = 0; i < resultado.length; i++) {
+    //         console.log('teste', resultado[i].Nome_maquina)
+    //         idMaquina.innerHTML += `<option value = "${resultado[i].idMaquina}"> ${resultado[i].Nome_maquina}  </option>`;
+    //       }
+    //     })
+    //   }
+
+    // })
+
+
+  // }
+
+  // function carregarGrafico(idRestaurante) {
+  //   receber_leitura(idRestaurante);
+  //   receber_leitura2(idRestaurante);
+  //   receber_leitura3(idRestaurante);
+
+  // }
+  // window.onload = buscarHamburgueria;
 </script>
