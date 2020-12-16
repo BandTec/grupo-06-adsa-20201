@@ -98,7 +98,11 @@ router.get('/dadoDisco2', (request, response) => {
         response.json(result);
     });
 });
-
+var maquinas;
+router.post('/maquinaAtual', function (req, res) {
+    maquinas = req.body.maquina;
+    console.log("A maquina: " + maquinas)
+});
 
 router.get('/dadoCPU', (request, response) => {
     var sql = `select CpuPorcent from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'PrimeiraMaquina');`;
@@ -139,6 +143,7 @@ router.get('/dadoMemoria1', (request, response) => {
         response.json(result);
     });
 });
+
 router.get('/dadoMemoria2', (request, response) => {
     var sql = `select Ramporcentagem from dadosMaquinas where id = (SELECT MAX(id) FROM dadosMaquinas where Nome_maquina = 'TerceiraMaquina');`;
     db.query(sql, function(err, result) {
@@ -146,4 +151,7 @@ router.get('/dadoMemoria2', (request, response) => {
         response.json(result);
     });
 });
-module.exports = router;
+module.exports = {
+    'rotas': router, 
+    'maquina': maquinas
+};

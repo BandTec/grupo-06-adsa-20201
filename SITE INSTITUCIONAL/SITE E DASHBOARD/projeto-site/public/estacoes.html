@@ -156,7 +156,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-              
+
                 <div class="card-body all-icons">
                   <div id="row" class="row">
                     <!-- <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
@@ -321,6 +321,7 @@
             <a href="#" target="_blank" class="btn btn-primary btn-block btn-round">Download</a>
             <a href="#" target="_blank" class="btn btn-default btn-block btn-round">
               Ver rotas
+              
             </a>
           </li>
           <li class="header-title">Obrigado por escolher a Machinetech!</li>
@@ -345,167 +346,62 @@
     <!-- <script src="../assets/js/plugins/chartjs.min.js"></script> -->
     <script src="bootstrap-notify.js"></script>
     <script src="black-dashboard.min.js"></script>
-    <!-- <script>
-      $(document).ready(function () {
-        $().ready(function () {
-          $sidebar = $('.sidebar');
-          $navbar = $('.navbar');
-          $main_panel = $('.main-panel');
-
-          $full_page = $('.full-page');
-
-          $sidebar_responsive = $('body > .navbar-collapse');
-          sidebar_mini_active = true;
-          white_color = false;
-
-          window_width = $(window).width();
-
-          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
-
-          $('.fixed-plugin a').click(function (event) {
-            if ($(this).hasClass('switch-trigger')) {
-              if (event.stopPropagation) {
-                event.stopPropagation();
-              } else if (window.event) {
-                window.event.cancelBubble = true;
-              }
-            }
-          });
-
-          $('.fixed-plugin .background-color span').click(function () {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-
-            var new_color = $(this).data('color');
-
-            if ($sidebar.length != 0) {
-              $sidebar.attr('data', new_color);
-            }
-
-            if ($main_panel.length != 0) {
-              $main_panel.attr('data', new_color);
-            }
-
-            if ($full_page.length != 0) {
-              $full_page.attr('filter-color', new_color);
-            }
-
-            if ($sidebar_responsive.length != 0) {
-              $sidebar_responsive.attr('data', new_color);
-            }
-          });
-
-          $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
-            var $btn = $(this);
-
-            if (sidebar_mini_active == true) {
-              $('body').removeClass('sidebar-mini');
-              sidebar_mini_active = false;
-              blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-            } else {
-              $('body').addClass('sidebar-mini');
-              sidebar_mini_active = true;
-              blackDashboard.showSidebarMessage('Sidebar mini activated...');
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function () {
-              window.dispatchEvent(new Event('resize'));
-            }, 180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function () {
-              clearInterval(simulateWindowResize);
-            }, 1000);
-          });
-
-          $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
-            var $btn = $(this);
-
-            if (white_color == true) {
-
-              $('body').addClass('change-background');
-              setTimeout(function () {
-                $('body').removeClass('change-background');
-                $('body').removeClass('white-content');
-              }, 900);
-              white_color = false;
-            } else {
-
-              $('body').addClass('change-background');
-              setTimeout(function () {
-                $('body').removeClass('change-background');
-                $('body').addClass('white-content');
-              }, 900);
-
-              white_color = true;
-            }
-
-
-          });
-
-          $('.light-badge').click(function () {
-            $('body').addClass('white-content');
-          });
-
-          $('.dark-badge').click(function () {
-            $('body').removeClass('white-content');
-          });
-        });
-      });
-    </script>
-    <script>
-      $(document).ready(function () {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-      });
-    </script>
-    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-    <script>
-      window.TrackJS &&
-        TrackJS.install({
-          token: "ee6fab19c5a04ac1a32a645abde4613a",
-          application: "black-dashboard-free"
-        });
-    </script> -->
 </body>
 
 </html>
 <script>
   async function pegarConteudo() {
-      try {
-          const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
-          const dataEstacao = await estacao.json();
-          mostrarDados(dataEstacao);
-          console.log(dataEstacao);
-      } catch (error) {
-          // console.log(error);
-      }
+    try {
+      const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
+      const dataEstacao = await estacao.json();
+      mostrarDados(dataEstacao);
+      console.log(dataEstacao);
+    } catch (error) {
+      // console.log(error);
+    }
   }
   pegarConteudo();
-
   function mostrarDados(dadoEstacoes) {
-      let show = '';
-      console.log('Estações', dadoEstacoes);
-      for (let dado of dadoEstacoes) {
-          show += `
-          <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                      <a href="maquinas.html">
+    let show = '';
+    console.log('Estações', dadoEstacoes);
+    for (let dado of dadoEstacoes) {
+      show += `
+          <div onclick="chamarMaquinas(${dado.idEstacao})" class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                      
                         <div class="font-icon-detail">
                           <i class="fas fa-subway"></i>
                           <p>${dado.nomeEstacao}</p>
                         </div>
-                      </a>
+                      
                     </div>
           `;
-      }
-      document.getElementById("row").innerHTML += show;
+    }
+    document.getElementById("row").innerHTML += show;
+  }
+  function chamarMaquinas(id) {
+    var maquinaEstacao = { 'maquina': id };
+    console.log('Máquina'+ maquinaEstacao);
+    fetch("http://localhost:3000/leituras/maquinaAtual", {
+      method: "POST",
+      body: JSON.stringify(maquinaEstacao),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(resposta => {
+        console.log('Máquina'+ maquinaEstacao);
+        console.log(JSON.stringify(maquinaEstacao));
+        resposta.json()
+        
+
+    })
+    redirecionar();
+  }
+  
+  function redirecionar(){
+    window.location.href = "maquinas.html";
   }
 
-  function recarregar() {
-      document.location.reload(true);
-  }
+
+
+  // function recarregar() {
+  //   document.location.reload(true);
+  // }
 </script>
