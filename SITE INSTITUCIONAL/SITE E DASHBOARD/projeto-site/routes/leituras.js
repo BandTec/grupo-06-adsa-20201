@@ -119,7 +119,7 @@ router.get('/graficoAtual/:fk', function (req, res){
 });
 
 router.get('/dadoGraficoMaquina', (request, response) => {
-    var sql = `select (CpuPorcent), (RamUsada), (discoDisponi) from dadosMaquinas where fkMaquina = ${maquinas}`;
+    var sql = `select (CpuPorcent), (Ramporcentagem), (Discoporcentagem) from dadosMaquinas where fkMaquina = ${maquinas}`;
     db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);

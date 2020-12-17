@@ -5,12 +5,13 @@ function plotarMemoria(leituraUsoPorc) {
         type: "doughnut",
         data: {
             labels: [],
-            labels: ['Porcentagem de Uso', "Espaço Livre"],
+            labels: [],
             datasets: [{
-                label: ['Porcentagem de Uso', 'Espaço Livre'],
+                label: [],
                 data: leituraUsoPorc,
                 fill: true,
-                backgroundColor: ['#2671ce', '#dadada'],
+                backgroundColor: ['#2084f7', '#404363'],
+                borderColor: ['#2084f7', '#404363'],
                 data: leituraUsoPorc,
                 fill: false
             }, ],

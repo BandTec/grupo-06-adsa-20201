@@ -16,14 +16,16 @@ function atualizarMemoria() {
                     
                     var leituraCPU = [];
                     leituraCPU.push(leitura.recordsets[0][0].CpuPorcent);
-                    numero.innerHTML = `${Number(leitura.recordsets[0][0].CpuPorcent).toFixed(2)}% `;
+                    numeroCPU.innerHTML = `${Number(leitura.recordsets[0][0].CpuPorcent).toFixed(1)}% `;
                     leituraCPU.push(100 - leitura.recordsets[0][0].CpuPorcent);
                     var leituraMemoria = [];
-                    leituraMemoria.push(leitura.recordsets[0][0].RamUsada);
-                    leituraMemoria.push(100 - leitura.recordsets[0][0].RamUsada);
+                    leituraMemoria.push(leitura.recordsets[0][0].Ramporcentagem);
+                    numeroMemoria.innerHTML = `${Number(leitura.recordsets[0][0].Ramporcentagem).toFixed(1)}% `;
+                    leituraMemoria.push(100 - leitura.recordsets[0][0].Ramporcentagem);
                     var leituraDisco = [];
-                    leituraDisco.push(leitura.recordsets[0][0].discoDisponi);
-                    leituraDisco.push(100 - leitura.recordsets[0][0].discoDisponi);
+                    leituraDisco.push(leitura.recordsets[0][0].Discoporcentagem);
+                    numeroDisco.innerHTML = `${Number(leitura.recordsets[0][0].Discoporcentagem).toFixed(1)}% `;
+                    leituraDisco.push(100 - leitura.recordsets[0][0].Discoporcentagem);
 
                     plotarCPU(leituraCPU);
                     plotarDisco(leituraDisco);

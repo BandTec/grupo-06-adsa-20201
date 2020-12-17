@@ -19,6 +19,15 @@
   <link rel="stylesheet" href="black-dashboard.css">
   <script src="js/Chart.min.js"></script>
   <script src="js/utils.js"></script>
+
+  <style>
+    .numero{
+      position: absolute;
+      top: 55%;
+      left: 38%;
+      font-size: 25px;
+    }
+  </style>
 </head>
 
 <body class="">
@@ -56,7 +65,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="mapas.html">
               <i class="fas fa-map-marker-alt"></i>
               <p>Mapa</p>
             </a>
@@ -125,7 +134,7 @@
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configurações</a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Sair</a></li>
+                  <li class="nav-link"><a href="login.html" class="nav-item dropdown-item">Sair</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -266,7 +275,7 @@
                       </div>
                       <div class="card-body">
                         <div class="chart-area">
-                          <div class="numero" id="numero"></div>
+                          <div class="numero" id="numeroCPU"></div>
                           <canvas id="chartCPU" height="200px" width="100%">
                           </canvas>
                         </div>
@@ -281,6 +290,7 @@
                       </div>
                       <div class="card-body">
                         <div class="chart-area">
+                          <div class="numero" id="numeroDisco"></div>
                           <canvas id="chartDisco" height="200px" width="100%"></canvas>
                         </div>
                       </div>
@@ -294,6 +304,7 @@
                       </div>
                       <div class="card-body">
                         <div class="chart-area">
+                          <div class="numero" id="numeroMemoria"></div>
                           <canvas id="chartMemoria" height="200px" width="100%"></canvas>
                         </div>
                       </div>
@@ -361,8 +372,8 @@
             <span class="color-label">Maps</span>
           </li>
           <li class="button-container">
-            <a href="#" target="_blank" class="btn btn-primary btn-block btn-round">Download</a>
-            <a href="#" target="_blank" class="btn btn-default btn-block btn-round">
+            <a href="mapas.html" target="_blank" class="btn btn-primary btn-block btn-round">Download</a>
+            <a href="mapas.html" target="_blank" class="btn btn-default btn-block btn-round">
               Ver rotas
             </a>
           </li>

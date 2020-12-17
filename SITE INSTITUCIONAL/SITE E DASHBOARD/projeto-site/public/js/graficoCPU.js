@@ -4,12 +4,13 @@ function plotarCPU(leituraUsoPorc) {
     var myChart = new Chart(ctx, {
         type: "doughnut",
         data: {
-            labels: ['CPU'],
+            labels: [],
             datasets: [{
                 label: "% de Utilização CPU",
                 data: leituraUsoPorc,
                 fill: true,
-                backgroundColor: ['#2671ce', '#dadada']
+                backgroundColor: ['#2084f7', '#404363'],
+                borderColor: ['#2084f7', '#404363']
             } ]
         },
 
