@@ -434,7 +434,7 @@ public class TemaPreto extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Memoria");
+        jLabel2.setText("Memory");
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel14.setForeground(new java.awt.Color(204, 204, 204));
@@ -501,7 +501,7 @@ public class TemaPreto extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("External disck ");
+        jLabel4.setText("External disk ");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
