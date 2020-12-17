@@ -1,0 +1,92 @@
+1/11/120 17:47:17 [ERRO]:Link de acesso ao Slack expirou.
+1/11/120 17:47:17 [MEMORIA]:Memoria RAM perto do teto de uso.
+1/11/120 18:6:4 [ERRO]:Link de acesso ao Slack expirou.
+1/11/120 18:6:4 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:49:46 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:50:35 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:50:37 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:51:6 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 17:51:8 [INTERNET]:Máquina não conectaca á internet.
+3/11/120 16:11:34 [ERRO]:Link de acesso ao Slack expirou.
+3/11/120 16:11:34 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 16:13:3 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 16:15:3 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 16:17:27 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:7:49 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:16:47 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:18:5 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 17:19:34 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:5:20 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:9:3 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:18:33 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:22:2 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:27:28 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:29:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:31:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:34:28 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:35:28 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:37:29 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:38:19 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:39:20 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:40:57 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:46:59 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:48:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:50:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:52:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:54:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:56:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 18:58:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:0:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:2:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:4:57 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:6:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:8:57 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:10:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:12:57 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:14:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:16:58 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 19:18:56 [MEMORIA]:Memoria RAM perto do teto de uso.
+3/11/120 20:55:21 [MEMORIA]:Memoria RAM perto do teto de uso.
+4/11/120 10:5:58 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:1 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:4 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:8 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:14 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:19 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:24 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:29 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:34 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:39 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:44 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:49 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:6:57 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:3 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:7 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:12 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:16 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:19 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:24 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:29 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:34 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:39 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:44 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:48 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:7:55 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:5 CPU:CPU perto do teto de uso.
+4/11/120 10:8:9 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:11 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:15 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:18 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:21 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:24 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:29 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:34 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:39 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:45 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:49 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:54 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:8:59 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:9:4 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:9:9 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:9:14 [INTERNET]:Máquina não conectaca á internet.
+4/11/120 10:9:19 [INTERNET]:Máquina não conectaca á internet.
