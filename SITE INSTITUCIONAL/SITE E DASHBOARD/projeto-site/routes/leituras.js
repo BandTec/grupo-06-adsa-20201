@@ -4,6 +4,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
 var path = require("path");
+var maquinas;
 
 /* Recuperar as últimas N leituras */
 // router.get('/ultimas', function(req, res, next) {
@@ -99,7 +100,7 @@ router.get('/dadoDisco2', (request, response) => {
         response.json(result);
     });
 });
-var maquinas;
+
 
 router.get('/maquinaAtual/:id', function (req, res) {
     console.log("A maquina: " + maquinas)
@@ -108,6 +109,17 @@ router.get('/maquinaAtual/:id', function (req, res) {
 
 router.get('/dadoMaquinaEstacao', (request, response) => {
     var sql = `select (hostname) from  maquina where fkEstacao = ${maquinas};`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
+});
+router.get('/graficoAtual/:fk', function (req, res){
+    console.log("O gráfico: " + maquinas)
+});
+
+router.get('/dadoGraficoMaquina', (request, response) => {
+    var sql = `select (CpuPorcent), (RamUsada), (discoDisponi) from dadosMaquinas where fkMaquina = ${maquinas}`;
     db.query(sql, function(err, result) {
         if (err) throw err;
         response.json(result);

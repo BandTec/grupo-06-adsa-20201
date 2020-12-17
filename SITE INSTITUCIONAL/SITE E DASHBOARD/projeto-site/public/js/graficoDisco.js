@@ -28,37 +28,37 @@ function plotarDisco(leituraUsoPorc) {
     });
 }
 
-window.onload = atualizarMemoria();
+// window.onload = atualizarMemoria();
 
-function atualizarMemoria() {
-    fetch("http://localhost:3000/leituras/dadoDisco", { cache: "no-store" })
-        .then(function(response) {
-            if (response.ok) {
-                response.json().then(function(resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    let leitura = resposta;
-                    console.log(leitura);
-                    // quantidade de elementos dentro da lista
-                    console.log(leitura.recordsets[0].length);
+// function atualizarMemoria() {
+//     fetch("http://localhost:3000/leituras/dadoDisco", { cache: "no-store" })
+//         .then(function(response) {
+//             if (response.ok) {
+//                 response.json().then(function(resposta) {
+//                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+//                     let leitura = resposta;
+//                     console.log(leitura);
+//                     // quantidade de elementos dentro da lista
+//                     console.log(leitura.recordsets[0].length);
 
-                    let leituraUsoPorc = [];
+//                     let leituraUsoPorc = [];
 
-                    for (n = leitura.recordsets[0].length - 1; n >= 0; n--) {
-                        leituraUsoPorc.push(leitura.recordsets[0][n].Discoporcentagem);
-                        leituraUsoPorc.push(100 - leitura.recordsets[0][n].Discoporcentagem);
-                    }
-                    console.log(leituraUsoPorc);
+//                     for (n = leitura.recordsets[0].length - 1; n >= 0; n--) {
+//                         leituraUsoPorc.push(leitura.recordsets[0][n].Discoporcentagem);
+//                         leituraUsoPorc.push(100 - leitura.recordsets[0][n].Discoporcentagem);
+//                     }
+//                     console.log(leituraUsoPorc);
 
-                    plotarDisco(leituraUsoPorc);
-                });
-            } else {
-                console.error("Nenhum dado encontrado ou erro na leituras");
-            }
-        })
-        .catch(function(error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
+//                     plotarDisco(leituraUsoPorc);
+//                 });
+//             } else {
+//                 console.error("Nenhum dado encontrado ou erro na leituras");
+//             }
+//         })
+//         .catch(function(error) {
+//             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+//         });
 
-}
-atualizarMemoria();
+// }
+// atualizarMemoria();
 

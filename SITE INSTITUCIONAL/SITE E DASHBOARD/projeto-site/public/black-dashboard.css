@@ -4555,6 +4555,9 @@ input[type="button"].btn-block {
 .custom-range:focus::-ms-thumb {
   box-shadow: 0 0 0 1px #1e1e2f, none;
 }
+.space {
+  margin-left: 3%;
+}
 
 .custom-range::-moz-focus-outer {
   border: 0;

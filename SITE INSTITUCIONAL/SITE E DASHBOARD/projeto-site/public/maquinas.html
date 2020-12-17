@@ -529,10 +529,10 @@
                         let show = '';
                         for (let dado of dadoMaquina.recordsets[0]) {
                             show += `
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                    <div onclick="chamarMaquinas(${dado.idEstacao}) class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6 space">
                       <a href="dashboard.html">
                         <div class="font-icon-detail">
-                            <i class="far fa-computer-classic"></i>
+                          <i class="fas fa-desktop"></i>
                           <p>${dado.hostname}</p>
                         </div>
                       </a>
@@ -552,5 +552,18 @@
             });
     }
     dadosMaquina()
+    function chamarMaquinas(fk) {
+    var graficoMaquina = { 'maquina': fk };
+    console.log('Máquina'+ graficoMaquina);
+    fetch(`http://localhost:3000/leituras/graficoAtual/${fk}`, {
+      method: "GET"
+      // body: JSON.stringify(maquinaEstacao),
+      // headers: { 'Content-Type': 'application/json' }
+    }).then(resposta => {
+        console.log('Gráfico'+ graficoMaquina);
+        console.log(JSON.stringify(graficoMaquina));
+        resposta.json()
+    })
+  }
 
 </script>

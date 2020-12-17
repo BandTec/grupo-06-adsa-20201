@@ -28,38 +28,6 @@ function plotarMemoria(leituraUsoPorc) {
     });
 }
 
-window.onload = atualizarMemoria();
 
-function atualizarMemoria() {
-    fetch("http://localhost:3000/leituras/dadoMemoria", { cache: "no-store" })
-        .then(function(response) {
-            if (response.ok) {
-                response.json().then(function(resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    let leitura = resposta;
-                    console.log(leitura);
-                    // quantidade de elementos dentro da lista
-                    console.log(leitura.recordsets[0].length);
 
-                    let leituraUsoPorc = [];
-
-                    for (n = leitura.recordsets[0].length - 1; n >= 0; n--) {
-                        leituraUsoPorc.push(leitura.recordsets[0][n].Ramporcentagem);
-                        leituraUsoPorc.push(100 - leitura.recordsets[0][n].Ramporcentagem);
-                    }
-                    console.log(leituraUsoPorc);
-
-                    plotarMemoria(leituraUsoPorc);
-                });
-            } else {
-                console.error("Nenhum dado encontrado ou erro na leituras");
-            }
-        })
-        .catch(function(error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-    
-
-}
-atualizarMemoria();
 

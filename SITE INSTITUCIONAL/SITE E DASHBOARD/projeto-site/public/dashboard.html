@@ -18,7 +18,7 @@
   <!-- CSS Files -->
   <link rel="stylesheet" href="black-dashboard.css">
   <script src="js/Chart.min.js"></script>
-    <script src="js/utils.js"></script>
+  <script src="js/utils.js"></script>
 </head>
 
 <body class="">
@@ -266,7 +266,9 @@
                       </div>
                       <div class="card-body">
                         <div class="chart-area">
-                          <canvas id="chartCPU" height="200px" width="100%"></canvas>
+                          <div class="numero" id="numero"></div>
+                          <canvas id="chartCPU" height="200px" width="100%">
+                          </canvas>
                         </div>
                       </div>
                     </div>
@@ -383,6 +385,7 @@
     <script src="popper.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="perfect-scrollbar.jquery.min.js"></script>
+
     <!-- <script src="../assets/js/plugins/chartjs.min.js"></script> -->
     <script src="bootstrap-notify.js"></script>
     <script src="black-dashboard.min.js"></script>
@@ -512,18 +515,19 @@
           application: "black-dashboard-free"
         });
     </script> -->
+    <script src="./js/funcGraficos.js"></script>
     <script src="js/Chart.min.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="./js/graficoDisco.js"></script>
-  <script src="./js/graficoMemoria.js"></script>
-  <script src="./js/graficoCPU.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="./js/graficoDisco.js"></script>
+    <script src="./js/graficoMemoria.js"></script>
+    <script src="./js/graficoCPU.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
 </body>
 
 </html>
 <script>
-  
+
   // async function pegarConteudo() {
   //     try {
   //         const estacao = await fetch(`http://localhost:3000/dadosEstacao/Estacao`);
@@ -587,16 +591,16 @@
   //     method: "GET",
 
 
-    // }).then(function (response) {
-    //   if (response.ok) {
-    //     response.json().then(function (resultado) {
-    //       for (var i = 0; i < resultado.length; i++) {
-    //         idRestaurante.innerHTML += `<option value = "${resultado[i].idRestaurante}"> ${resultado[i].Nome_Restaurante}  </option>`;
-    //       }
-    //     })
-    //   }
+  // }).then(function (response) {
+  //   if (response.ok) {
+  //     response.json().then(function (resultado) {
+  //       for (var i = 0; i < resultado.length; i++) {
+  //         idRestaurante.innerHTML += `<option value = "${resultado[i].idRestaurante}"> ${resultado[i].Nome_Restaurante}  </option>`;
+  //       }
+  //     })
+  //   }
 
-    // })
+  // })
 
 
   // }
@@ -609,18 +613,18 @@
   //     method: "GET",
 
 
-    // }).then(function (response) {
-    //   if (response.ok) {
-    //     response.json().then(function (resultado) {
+  // }).then(function (response) {
+  //   if (response.ok) {
+  //     response.json().then(function (resultado) {
 
-    //       for (var i = 0; i < resultado.length; i++) {
-    //         console.log('teste', resultado[i].Nome_maquina)
-    //         idMaquina.innerHTML += `<option value = "${resultado[i].idMaquina}"> ${resultado[i].Nome_maquina}  </option>`;
-    //       }
-    //     })
-    //   }
+  //       for (var i = 0; i < resultado.length; i++) {
+  //         console.log('teste', resultado[i].Nome_maquina)
+  //         idMaquina.innerHTML += `<option value = "${resultado[i].idMaquina}"> ${resultado[i].Nome_maquina}  </option>`;
+  //       }
+  //     })
+  //   }
 
-    // })
+  // })
 
 
   // }
@@ -632,4 +636,4 @@
 
   // }
   // window.onload = buscarHamburgueria;
-</script>
+  <script/>
