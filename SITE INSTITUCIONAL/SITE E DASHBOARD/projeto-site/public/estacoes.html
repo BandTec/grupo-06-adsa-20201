@@ -53,18 +53,7 @@
               <p>Mapa</p>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fas fa-bell"></i>
-              <p>Notificações</p>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fas fa-user"></i>
-              <p>Perfil</p>
-            </a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -330,6 +319,7 @@
             <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
             <br>
             <br>
+            
             <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard"
               data-icon="octicon-star" data-size="large" data-show-count="true"
               aria-label="Star ntkme/github-buttons on GitHub">Contrate</a>
@@ -367,12 +357,12 @@
     for (let dado of dadoEstacoes) {
       show += `
           <div onclick="chamarMaquinas(${dado.idEstacao})" class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                      
+            <a href="maquinas.html">
                         <div class="font-icon-detail">
                           <i class="fas fa-subway"></i>
                           <p>${dado.nomeEstacao}</p>
                         </div>
-                      
+                      </a>
                     </div>
           `;
     }
@@ -381,10 +371,10 @@
   function chamarMaquinas(id) {
     var maquinaEstacao = { 'maquina': id };
     console.log('Máquina'+ maquinaEstacao);
-    fetch("http://localhost:3000/leituras/maquinaAtual", {
-      method: "POST",
-      body: JSON.stringify(maquinaEstacao),
-      headers: { 'Content-Type': 'application/json' }
+    fetch(`http://localhost:3000/leituras/maquinaAtual/${id}`, {
+      method: "GET"
+      // body: JSON.stringify(maquinaEstacao),
+      // headers: { 'Content-Type': 'application/json' }
     }).then(resposta => {
         console.log('Máquina'+ maquinaEstacao);
         console.log(JSON.stringify(maquinaEstacao));
@@ -392,11 +382,6 @@
         
 
     })
-    redirecionar();
-  }
-  
-  function redirecionar(){
-    window.location.href = "maquinas.html";
   }
 
 

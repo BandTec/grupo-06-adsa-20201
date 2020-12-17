@@ -3,6 +3,7 @@ const db = require('./config');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
+var path = require("path");
 
 /* Recuperar as últimas N leituras */
 // router.get('/ultimas', function(req, res, next) {
@@ -99,9 +100,18 @@ router.get('/dadoDisco2', (request, response) => {
     });
 });
 var maquinas;
-router.post('/maquinaAtual', function (req, res) {
-    maquinas = req.body.maquina;
+
+router.get('/maquinaAtual/:id', function (req, res) {
     console.log("A maquina: " + maquinas)
+    maquinas = req.params.id;
+});
+
+router.get('/dadoMaquinaEstacao', (request, response) => {
+    var sql = `select (hostname) from  maquina where fkEstacao = ${maquinas};`;
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        response.json(result);
+    });
 });
 
 router.get('/dadoCPU', (request, response) => {

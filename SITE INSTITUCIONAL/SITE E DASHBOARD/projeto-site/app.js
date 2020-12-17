@@ -10,7 +10,9 @@ var usuariosRouter = require('./routes/usuarios');
 var leiturasRouter = require('./routes/leituras').rotas;
 var dadosMaquina = require('./routes/dadosMaquina');
 var dadosEstacoes = require('./routes/estacaoBD');
-var dadosMaquinasEstacoes = require('./routes/estacaoMaquina');
+// var maquina = require('./routes/leituras');
+
+// var dadosMaquinasEstacoes = require('./routes/leituras/');
 // var maquina = require('./routes/rotaMaquina');
 //var estacoes = require('./routes/estacoes');
 
@@ -23,11 +25,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// app.use('/maquinas', maquina);
 app.use('/usuarios', usuariosRouter);
 app.use('/leituras', leiturasRouter);
 app.use('/dados' , dadosMaquina);
 app.use('/dadosEstacao', dadosEstacoes);
-app.use('/maquinaEstacao', dadosMaquinasEstacoes);
+
+// app.use('/maquinaEstacao', dadosMaquinasEstacoes);
 // app.use('/maquina', maquina);
 //app.use('./')
 
